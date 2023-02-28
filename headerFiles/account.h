@@ -7,10 +7,10 @@ int g_noAccounts;
 
 class Account {
     public:
-        Account(string &nameIn, string &passwordIn);
-        void setName(string &nameIn);
+        Account(string nameIn, string passwordIn);
+        void setName(string nameIn);
         [[nodiscard]] string getName() const;
-        void setPassword(string &passwordIn);
+        void setPassword(string passwordIn);
         [[nodiscard]] string getPassword() const;
     private:
         string name;

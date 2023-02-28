@@ -1,24 +1,25 @@
 #ifndef RECIPIE_H
 #define RECIPIE_H
 #include <string>
-#include <vector>
+#include "../headerFiles/collection.h"
 #include <ctime>
 #include <cstdio>
-//using namespace std;
+
 using std::string;
 using std::vector;
 
 class Recipie{
 public:
     Recipie();
+    Recipie(Recipie &r);
     [[nodiscard]] string getTitle() const;
-    void setTitle(string &titleIn);
+    void setTitle(string titleIn);
 
     [[nodiscard]] int getPrepTime() const;
-    void setPrepTime(int &prepTimeIn);
+    void setPrepTime(int prepTimeIn);
 
     [[nodiscard]] int getCookTime() const;
-    void setCookTime(int &cookTimeIn);
+    void setCookTime(int cookTimeIn);
 
     [[nodiscard]] int getTime() const;
     void setTime();
@@ -26,13 +27,9 @@ public:
     [[nodiscard]] const time_t* getTimeCreated() const;
     [[nodiscard]] const char* getTimeCreatedStr() const;
 
-    string getIngredient(int &i) const;
-    void addIngredient(string &ingredient);
-    void addAllIngredients(string ingredientsIn[], int sz);
-
-    string getInstruction(int &i) const;
-    void addInstruction(string &instruction);
-    void addAllInstructions(string instructions[],int sz);
+    //maybe privatize later
+    Collection <string> ingredients = Collection<string>("Ingredients");
+    Collection <string> instructions = Collection<string>("Instructions");;
 
 private:
     string title;
@@ -41,8 +38,6 @@ private:
     int time;
     time_t timeCreated;
     char *timeCreatedStr;
-    vector<string> ingredients;
-    vector<string> instructions;
 };
 
 #endif // RECIPIE_H
