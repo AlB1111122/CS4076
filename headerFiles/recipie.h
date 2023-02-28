@@ -4,7 +4,9 @@
 #include <vector>
 #include <ctime>
 #include <cstdio>
-using namespace std;
+//using namespace std;
+using std::string;
+using std::vector;
 
 class Recipie{
 public:
@@ -38,7 +40,7 @@ private:
     int cookTime;
     int time;
     time_t timeCreated;
-    char *timeCreatedStr = new char[17];
+    char *timeCreatedStr;
     vector<string> ingredients;
     vector<string> instructions;
 };

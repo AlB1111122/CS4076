@@ -6,9 +6,10 @@ Recipie::Recipie() {
     snprintf(timeCreatedStr, 17, "%d-%02d-%02d %02d:%02d\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min);
 }
 
-string Recipie::getTitle() const{
+string Recipie::getTitle() const {
     return Recipie::title;
 }
+
 void Recipie::setTitle(string &titleIn){
     Recipie::title = titleIn;
 }

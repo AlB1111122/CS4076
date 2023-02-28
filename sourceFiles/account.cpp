@@ -3,6 +3,8 @@
 Account::Account(string &nameIn, string &passwordIn){
     name = nameIn;
     password = passwordIn;
+    g_noAccounts++;
+    accountNo = g_noAccounts;
 }
 
 void Account::setName(string &nameIn){
