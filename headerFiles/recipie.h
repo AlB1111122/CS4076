@@ -1,14 +1,15 @@
 #ifndef RECIPIE_H
 #define RECIPIE_H
 #include <string>
-#include "../headerFiles/collection.h"
 #include <ctime>
 #include <cstdio>
-
 using std::string;
-using std::vector;
 
 class Recipie{
+    struct{
+        time_t timeCreated;
+        char *timeCreatedStr;
+    }timeCr;
 public:
     Recipie();
     Recipie(Recipie &r);
@@ -28,16 +29,14 @@ public:
     [[nodiscard]] const char* getTimeCreatedStr() const;
 
     //maybe privatize later
-    Collection <string> ingredients = Collection<string>("Ingredients");
-    Collection <string> instructions = Collection<string>("Instructions");;
+    //Collection <string> ingredients = Collection<string>("Ingredients");
+    //Collection <string> instructions = Collection<string>("Instructions");
 
 private:
     string title;
     int prepTime;
     int cookTime;
     int time;
-    time_t timeCreated;
-    char *timeCreatedStr;
 };
 
 #endif // RECIPIE_H

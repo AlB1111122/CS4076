@@ -2,15 +2,14 @@
 #include "../headerFiles/recipie.h"
 
 Recipie::Recipie() {
-    timeCreated = std::time(nullptr);
+    timeCr.timeCreated = std::time(nullptr);
     struct tm tm = *localtime(getTimeCreated());
-    snprintf(timeCreatedStr, 17, "%d-%02d-%02d %02d:%02d\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min);
+    snprintf(timeCr.timeCreatedStr, 17, "%d-%02d-%02d %02d:%02d\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min);
 }
 
 Recipie::Recipie(Recipie &r) {
-    timeCreated = *r.getTimeCreated();
-    struct tm tm = *localtime(getTimeCreated());
-    snprintf(timeCreatedStr, 17, "%d-%02d-%02d %02d:%02d\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min);
+    timeCr.timeCreated = *r.getTimeCreated();
+    timeCr.timeCreatedStr = r.timeCr.timeCreatedStr;
 }
 
 string Recipie::getTitle() const {
@@ -43,10 +42,10 @@ void Recipie::setTime(){
 }
 
 const time_t*  Recipie::getTimeCreated() const{
-    return &timeCreated;
+    return &timeCr.timeCreated;
 }
 
 const char* Recipie::getTimeCreatedStr() const{
-    return timeCreatedStr;
+    return timeCr.timeCreatedStr;
 }
 

@@ -3,4 +3,4 @@ project(projClionVer)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(projClionVer sourceFiles/main.cpp headerFiles/account.h headerFiles/recipie.h sourceFiles/account.cpp sourceFiles/recipie.cpp sourceFiles/collection.cpp headerFiles/collection.h)
+add_executable(projClionVer sourceFiles/main.cpp headerFiles/account.h headerFiles/recipie.h sourceFiles/account.cpp sourceFiles/recipie.cpp)
