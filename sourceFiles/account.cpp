@@ -1,26 +1,29 @@
-#include <utility>
 #include "../headerFiles/account.h"
 
-Account::Account(string nameIn, string passwordIn){
-    name = std::move(nameIn);
-    password = std::move(passwordIn);
+Account::Account(char* nameIn, char* passwordIn){
+    strcpy(name, nameIn);
+    strcpy(password, passwordIn);
     g_noAccounts++;
     accountNo = g_noAccounts;
 }
 
-void Account::setName(string nameIn){
-    name = std::move(nameIn);
+void Account::setName(char* nameIn){
+    strcpy(name, nameIn);
 }
 
-string Account::getName() const{
+const char* Account::getName() const{
     return name;
 }
 
-void Account::setPassword(string passwordIn){
-    password = std::move(passwordIn);
+void Account::setPassword(char* passwordIn){
+    strcpy(password, passwordIn);
 }
 
-string Account::getPassword() const{
+const char* Account::getPassword() const{
     return password;
+}
+
+int Account::getAccountNo() const {
+    return accountNo;
 }
 

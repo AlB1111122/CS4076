@@ -1,21 +1,20 @@
 #ifndef ACCOUNT_H
 #define ACCOUNT_H
-#include <string>
-using std::string;
-
-int g_noAccounts;
+#include <cstring>
 
 class Account {
     public:
-        Account(string nameIn, string passwordIn);
-        void setName(string nameIn);
-        [[nodiscard]] string getName() const;
-        void setPassword(string passwordIn);
-        [[nodiscard]] string getPassword() const;
+        Account(char* nameIn = "name", char* passwordIn = "password");
+        void setName(char* nameIn);
+        [[nodiscard]]const char* getName() const;
+        void setPassword(char* passwordIn);
+        [[nodiscard]]const char* getPassword() const;
+        [[nodiscard]]int getAccountNo() const;
     private:
-        string name;
-        string password;
+        char name[30];
+        char password[30];
         int accountNo;
+        int g_noAccounts;
 };
 #endif // ACCOUNT_H
 

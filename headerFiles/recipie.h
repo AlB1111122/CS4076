@@ -1,10 +1,9 @@
 #ifndef RECIPIE_H
 #define RECIPIE_H
-#include <string>
+#include <cstring>
 #include <ctime>
 #include <cstdio>
 #include <vector>
-using std::string;
 
 class Recipie{
     struct{
@@ -12,10 +11,14 @@ class Recipie{
         char *timeCreatedStr;
     }timeCr;
 public:
-    explicit Recipie(string author);
     Recipie(Recipie &r);
-    [[nodiscard]] string getTitle() const;
-    void setTitle(string titleIn);
+    explicit Recipie(char* titleIn = "title",char* authorIn = "author",int prepTimeIn = 10, int cookTimeIn = 20);//string titleIn = "title",string authorIn = "author",
+
+    [[nodiscard]] const char *getTitle() const;
+    void setTitle(char* titleIn);
+
+    [[nodiscard]]const char* getAuthor() const;
+    void setAuthor(char* authorIn);
 
     [[nodiscard]] int getPrepTime() const;
     void setPrepTime(int prepTimeIn);
@@ -29,11 +32,10 @@ public:
     [[nodiscard]] const time_t* getTimeCreated() const;
     [[nodiscard]] const char* getTimeCreatedStr() const;
 private:
-    string title;
-    string author;
+    char title[30];
+    char author[30];
     int prepTime;
     int cookTime;
     int time;
 };
-
 #endif // RECIPIE_H
