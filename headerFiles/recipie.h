@@ -8,7 +8,7 @@
 class Recipie{
 public:
     explicit Recipie(char* titleIn = "title",char* authorIn = "author",int prepTimeIn = 10, int cookTimeIn = 20);
-    Recipie(Recipie &r);
+    Recipie(const Recipie &r);
 
     [[nodiscard]] const char *getTitle() const;
     void setTitle(char* titleIn);
@@ -25,7 +25,7 @@ public:
     [[nodiscard]] int getTime() const;
     void setTime();
 
-    [[nodiscard]] time_t* getTimeCreated();
+    [[nodiscard]] const time_t* getTimeCreated() const;
     [[nodiscard]] char* getTimeCreatedStr() const;
 
 private:

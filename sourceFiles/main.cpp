@@ -22,7 +22,10 @@ int main() {
     acs.push_back(a);
 
     std::vector<Recipie> v;
-   // v.push_back(r);
-
+    v.push_back(r);
+/* a default constructor that takes no arguments
+a copy constructor ex: book(const &book b);
+an overloaded assignment operator
+ */
     return 0;
 }

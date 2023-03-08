@@ -11,7 +11,7 @@ Recipie::Recipie(char* titleIn, char* authorIn, int prepTimeIn, int cookTimeIn) 
     setTime();
 }
 
-Recipie::Recipie(Recipie &r) {
+Recipie::Recipie(const Recipie &r) {
     timeCreated = *r.getTimeCreated();
     timeCreatedStr = r.timeCreatedStr;
     strcpy(title, r.getTitle());
@@ -58,10 +58,11 @@ void Recipie::setTime(){
     time = cookTime + prepTime;
 }
 
-time_t*  Recipie::getTimeCreated() {
+const time_t*  Recipie::getTimeCreated() const{
     return &timeCreated;
 }
 
 char* Recipie::getTimeCreatedStr() const {
     return timeCreatedStr;
 }
+
