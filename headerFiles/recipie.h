@@ -6,13 +6,9 @@
 #include <vector>
 
 class Recipie{
-    struct{
-        time_t timeCreated;
-        char *timeCreatedStr;
-    }timeCr;
 public:
+    explicit Recipie(char* titleIn = "title",char* authorIn = "author",int prepTimeIn = 10, int cookTimeIn = 20);
     Recipie(Recipie &r);
-    explicit Recipie(char* titleIn = "title",char* authorIn = "author",int prepTimeIn = 10, int cookTimeIn = 20);//string titleIn = "title",string authorIn = "author",
 
     [[nodiscard]] const char *getTitle() const;
     void setTitle(char* titleIn);
@@ -29,13 +25,16 @@ public:
     [[nodiscard]] int getTime() const;
     void setTime();
 
-    [[nodiscard]] const time_t* getTimeCreated() const;
-    [[nodiscard]] const char* getTimeCreatedStr() const;
+    [[nodiscard]] time_t* getTimeCreated();
+    [[nodiscard]] char* getTimeCreatedStr() const;
+
 private:
     char title[30];
     char author[30];
     int prepTime;
     int cookTime;
     int time;
+    char* timeCreatedStr = new char[17];
+    time_t timeCreated;
 };
 #endif // RECIPIE_H

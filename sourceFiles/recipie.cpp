@@ -1,20 +1,19 @@
-#include <utility>
 #include "../headerFiles/recipie.h"
 
 Recipie::Recipie(char* titleIn, char* authorIn, int prepTimeIn, int cookTimeIn) {//string titleIn,string authorIn,
-    timeCr.timeCreated = std::time(nullptr);
+    timeCreated = std::time(nullptr);
     struct tm tm = *localtime(getTimeCreated());
-    snprintf(timeCr.timeCreatedStr, 17, "%d-%02d-%02d %02d:%02d\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min);
+    snprintf(timeCreatedStr, 17, "%d-%02d-%02d %02d:%02d\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min);
     strcpy(title, titleIn);
     strcpy(author, authorIn);
     prepTime = prepTimeIn;
     cookTime = cookTimeIn;
-    time = prepTime + cookTime;
+    setTime();
 }
 
 Recipie::Recipie(Recipie &r) {
-    timeCr.timeCreated = *r.getTimeCreated();
-    timeCr.timeCreatedStr = r.timeCr.timeCreatedStr;
+    timeCreated = *r.getTimeCreated();
+    timeCreatedStr = r.timeCreatedStr;
     strcpy(title, r.getTitle());
     strcpy(author, r.getAuthor());
     prepTime = r.getPrepTime();
@@ -59,10 +58,10 @@ void Recipie::setTime(){
     time = cookTime + prepTime;
 }
 
-const time_t*  Recipie::getTimeCreated() const{
-    return &timeCr.timeCreated;
+time_t*  Recipie::getTimeCreated() {
+    return &timeCreated;
 }
 
-const char* Recipie::getTimeCreatedStr() const{
-    return timeCr.timeCreatedStr;
+char* Recipie::getTimeCreatedStr() const {
+    return timeCreatedStr;
 }
