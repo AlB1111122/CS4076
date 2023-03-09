@@ -2,6 +2,7 @@
 #define ACCOUNT_H
 #include <cstring>
 
+extern int g_noAccounts;
 class Account {
     public:
         Account(char* nameIn = "name", char* passwordIn = "password");
@@ -13,8 +14,8 @@ class Account {
     private:
         char name[30];
         char password[30];
+
         int accountNo;
-        int g_noAccounts;
 };
 #endif // ACCOUNT_H
 

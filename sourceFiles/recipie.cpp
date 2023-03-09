@@ -1,6 +1,8 @@
 #include "../headerFiles/recipie.h"
 
 Recipie::Recipie(char* titleIn, char* authorIn, int prepTimeIn, int cookTimeIn) {//string titleIn,string authorIn,
+    g_noRecipies++;
+    recipieNo = g_noRecipies;
     timeCreated = std::time(nullptr);
     struct tm tm = *localtime(getTimeCreated());
     snprintf(timeCreatedStr, 17, "%d-%02d-%02d %02d:%02d\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min);
@@ -12,6 +14,8 @@ Recipie::Recipie(char* titleIn, char* authorIn, int prepTimeIn, int cookTimeIn) 
 }
 
 Recipie::Recipie(const Recipie &r) {
+    g_noRecipies++;
+    recipieNo = g_noRecipies;//bc need to have it marked as a diff one for strage/load for acc
     timeCreated = *r.getTimeCreated();
     timeCreatedStr = r.timeCreatedStr;
     strcpy(title, r.getTitle());
@@ -19,6 +23,12 @@ Recipie::Recipie(const Recipie &r) {
     prepTime = r.getPrepTime();
     cookTime = r.getCookTime();
     time = r.getTime();
+}
+
+
+
+Recipie::~Recipie() {
+    delete[] timeCreatedStr;
 }
 
 const char* Recipie::getTitle() const {
@@ -35,6 +45,10 @@ const char* Recipie::getAuthor() const {
 
 void Recipie::setAuthor(char* authorIn) {
     strcpy(author, authorIn);
+}
+
+int Recipie::getRecipieNo() const{
+    return recipieNo;
 }
 
 int Recipie::getPrepTime() const{
@@ -64,5 +78,13 @@ const time_t*  Recipie::getTimeCreated() const{
 
 char* Recipie::getTimeCreatedStr() const {
     return timeCreatedStr;
+}
+
+std::vector<char*>* Recipie::getIngredients(){
+    return &ingredients;
+}
+
+std::vector<char*>* Recipie::getInstructions(){
+    return &instructions;
 }
 
