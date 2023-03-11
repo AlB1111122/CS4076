@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 using std::cout;
 using std::endl;
 #include "../headerFiles/recipie.h"
@@ -8,6 +9,7 @@ using std::endl;
 int g_noAccounts;
 int g_noRecipies;
 int main() {
+    Recipie r;
 
-    return 0;
+    Recipie r2(r);
 }

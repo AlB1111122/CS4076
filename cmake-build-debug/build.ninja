@@ -73,11 +73,11 @@ build CMakeFiles/projClionVer.dir/sourceFiles/collection.cpp.o: CXX_COMPILER__pr
   OBJECT_DIR = CMakeFiles/projClionVer.dir
   OBJECT_FILE_DIR = CMakeFiles/projClionVer.dir/sourceFiles
 
-build CMakeFiles/projClionVer.dir/headerFiles/system.cpp.o: CXX_COMPILER__projClionVer_Debug /home/shcool/Desktop/CS4076-EventDrivenPrograming/projClionVer/CS4076/headerFiles/system.cpp || cmake_object_order_depends_target_projClionVer
-  DEP_FILE = CMakeFiles/projClionVer.dir/headerFiles/system.cpp.o.d
+build CMakeFiles/projClionVer.dir/sourceFiles/system.cpp.o: CXX_COMPILER__projClionVer_Debug /home/shcool/Desktop/CS4076-EventDrivenPrograming/projClionVer/CS4076/sourceFiles/system.cpp || cmake_object_order_depends_target_projClionVer
+  DEP_FILE = CMakeFiles/projClionVer.dir/sourceFiles/system.cpp.o.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++23
   OBJECT_DIR = CMakeFiles/projClionVer.dir
-  OBJECT_FILE_DIR = CMakeFiles/projClionVer.dir/headerFiles
+  OBJECT_FILE_DIR = CMakeFiles/projClionVer.dir/sourceFiles
 
 
 # =============================================================================
@@ -87,7 +87,7 @@ build CMakeFiles/projClionVer.dir/headerFiles/system.cpp.o: CXX_COMPILER__projCl
 #############################################
 # Link the executable projClionVer
 
-build projClionVer: CXX_EXECUTABLE_LINKER__projClionVer_Debug CMakeFiles/projClionVer.dir/sourceFiles/main.cpp.o CMakeFiles/projClionVer.dir/sourceFiles/account.cpp.o CMakeFiles/projClionVer.dir/sourceFiles/recipie.cpp.o CMakeFiles/projClionVer.dir/sourceFiles/collection.cpp.o CMakeFiles/projClionVer.dir/headerFiles/system.cpp.o
+build projClionVer: CXX_EXECUTABLE_LINKER__projClionVer_Debug CMakeFiles/projClionVer.dir/sourceFiles/main.cpp.o CMakeFiles/projClionVer.dir/sourceFiles/account.cpp.o CMakeFiles/projClionVer.dir/sourceFiles/recipie.cpp.o CMakeFiles/projClionVer.dir/sourceFiles/collection.cpp.o CMakeFiles/projClionVer.dir/sourceFiles/system.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/projClionVer.dir
   POST_BUILD = :

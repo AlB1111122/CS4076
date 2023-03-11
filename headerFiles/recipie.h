@@ -1,23 +1,27 @@
 #ifndef RECIPIE_H
 #define RECIPIE_H
-#include <cstring>
+#include <string>
+using std::string;
 #include <ctime>
 #include <cstdio>
 #include <vector>
 #include <fstream>
+#include <iostream>
 
 extern int g_noRecipies;
 class Recipie{
 public:
-    explicit Recipie(char* titleIn = "title",char* authorIn = "author",int prepTimeIn = 10, int cookTimeIn = 20);
+    explicit Recipie(string titleIn = "title", string authorIn = "author", int prepTimeIn = 10, int cookTimeIn = 20);
     Recipie(const Recipie &r);
+    Recipie(string& titleIn, string& author, int rNoIn, int prepTimeIn, int cookTimeIn, string& timeCreatedStrIn,
+            time_t timeCreatedIn, std::vector<string>& ingredientsIn, std::vector<string>& instructionsIn);
     ~Recipie();
 
-    [[nodiscard]] const char *getTitle() const;
-    void setTitle(char* titleIn);
+    [[nodiscard]] string getTitle() const;
+    void setTitle(string& titleIn);
 
-    [[nodiscard]]const char* getAuthor() const;
-    void setAuthor(char* authorIn);
+    [[nodiscard]] string getAuthor() const;
+    void setAuthor(string& authorIn);
 
     [[nodiscard]] int getRecipieNo() const;
 
@@ -28,25 +32,25 @@ public:
     void setCookTime(int cookTimeIn);
 
     [[nodiscard]] int getTime() const;
-    void setTime();
 
     [[nodiscard]] const time_t* getTimeCreated() const;
-    [[nodiscard]] char* getTimeCreatedStr() const;
+    [[nodiscard]] string getTimeCreatedStr() const;
 
-    std::vector<char*>* getIngredients();
-    std::vector<char*>* getInstructions();
+    std::vector<string>* getIngredients();
+    std::vector<string>* getInstructions();
 
 
 private:
-    char title[30];
-    char author[30];
+    string title;
+    string author;
     int recipieNo;
     int prepTime;
     int cookTime;
     int time;
-    char* timeCreatedStr = new char[17];
+    string timeCreatedStr;
     time_t timeCreated;
-    std::vector<char*> ingredients;
-    std::vector<char*> instructions;
+    std::vector<string> ingredients;
+    std::vector<string> instructions;
+    void setTime();
 };
 #endif // RECIPIE_H

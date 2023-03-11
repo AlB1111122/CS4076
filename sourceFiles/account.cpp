@@ -20,7 +20,7 @@ int Account::getAccountNo() const {
     return accountNo;
 }
 
-collection<Recipie>* Account::getUsrRecipies() {
+collection<int>* Account::getUsrRecipies() {
     return &recipies;
 }
 
