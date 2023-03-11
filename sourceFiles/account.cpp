@@ -1,29 +1,26 @@
 #include "../headerFiles/account.h"
 
-Account::Account(char* nameIn, char* passwordIn){
-    strcpy(name, nameIn);
-    strcpy(password, passwordIn);
-    g_noAccounts++;
-    accountNo = g_noAccounts;
+void Account::setName(string& nameIn){
+    name = nameIn;
 }
 
-void Account::setName(char* nameIn){
-    strcpy(name, nameIn);
-}
-
-const char* Account::getName() const{
+string Account::getName() const{
     return name;
 }
 
-void Account::setPassword(char* passwordIn){
-    strcpy(password, passwordIn);
+void Account::setPassword(string& passwordIn){
+    password = passwordIn;
 }
 
-const char* Account::getPassword() const{
+string Account::getPassword() const{
     return password;
 }
 
 int Account::getAccountNo() const {
     return accountNo;
+}
+
+collection<Recipie>* Account::getUsrRecipies() {
+    return &recipies;
 }
 

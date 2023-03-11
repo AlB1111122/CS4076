@@ -1,21 +1,31 @@
 #ifndef ACCOUNT_H
 #define ACCOUNT_H
-#include <cstring>
+#include <string>
+#include <utility>
+#include  "../headerFiles/collection.h"
+using col::collection;
+using std::string;
 
 extern int g_noAccounts;
 class Account {
     public:
-        Account(char* nameIn = "name", char* passwordIn = "password");
-        void setName(char* nameIn);
-        [[nodiscard]]const char* getName() const;
-        void setPassword(char* passwordIn);
-        [[nodiscard]]const char* getPassword() const;
-        [[nodiscard]]int getAccountNo() const;
-    private:
-        char name[30];
-        char password[30];
+        Account(string nameIn = "name", string passwordIn = "password"):
+        name(std::move(nameIn)), password(std::move(passwordIn)), recipies("User created recipies"){
+            g_noAccounts++;
+            accountNo = g_noAccounts;
+        }
 
+        void setName(string& nameIn);
+        [[nodiscard]]string getName() const;
+        void setPassword(string& passwordIn);
+        [[nodiscard]]string getPassword() const;
+        [[nodiscard]]int getAccountNo() const;
+        collection<int>* getUsrRecipies();
+    private:
+        string name;
+        string password;
         int accountNo;
+        collection<int> recipies;
 };
 #endif // ACCOUNT_H
 

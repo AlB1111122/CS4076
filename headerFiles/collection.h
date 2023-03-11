@@ -1,21 +1,23 @@
 #ifndef PROJCLIONVER_COLLECTION_H
 #define PROJCLIONVER_COLLECTION_H
 #include <vector>
-#include <cstring>
+#include <string>
+using std::string;
 
 namespace col {
     template<typename T>class collection : public std::vector<T, std::allocator<T>> {
     public:
-        collection(char* nameIn){
-            strcpy(name,nameIn);
+        explicit collection(string nameIn = "Collection name"): name(std::move(nameIn)){}
+
+        void setName(string& nameIn){
+            name = nameIn;
         }
 
-        char* getName(){
+        string getName(){
             return name;
         }
     private:
-        char name[30];
+        string name;
     };
 }
-
 #endif //PROJCLIONVER_COLLECTION_H
