@@ -1,5 +1,7 @@
 #ifndef RECIPIE_H
 #define RECIPIE_H
+#include <utility>
+#include <cstring>
 #include <string>
 using std::string;
 #include <ctime>
@@ -10,10 +12,11 @@ using std::string;
 
 extern int g_noRecipies;
 class Recipie{
+    friend class fileManager;
 public:
     explicit Recipie(string titleIn = "title", string authorIn = "author", int prepTimeIn = 10, int cookTimeIn = 20);
     Recipie(const Recipie &r);
-    Recipie(string& titleIn, string& author, int rNoIn, int prepTimeIn, int cookTimeIn, string& timeCreatedStrIn,
+    Recipie(string& titleIn, string& author, int rNoIn, int prepTimeIn, int cookTimeIn, char* timeCreatedStrIn,
             time_t timeCreatedIn, std::vector<string>& ingredientsIn, std::vector<string>& instructionsIn);
     ~Recipie();
 
@@ -34,7 +37,7 @@ public:
     [[nodiscard]] int getTime() const;
 
     [[nodiscard]] const time_t* getTimeCreated() const;
-    [[nodiscard]] string getTimeCreatedStr() const;
+    [[nodiscard]] char * getTimeCreatedStr() const;
 
     std::vector<string>* getIngredients();
     std::vector<string>* getInstructions();
@@ -47,7 +50,7 @@ private:
     int prepTime;
     int cookTime;
     int time;
-    string timeCreatedStr;
+    char* timeCreatedStr = new char[17];
     time_t timeCreated;
     std::vector<string> ingredients;
     std::vector<string> instructions;

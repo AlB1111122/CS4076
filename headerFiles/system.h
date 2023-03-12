@@ -3,11 +3,14 @@
 #include "../headerFiles/recipie.h"
 #include "../headerFiles/account.h"
 #include "../headerFiles/collection.h"
+#include <algorithm>
 
 namespace sys{
     class system {
     public:
-
+        string login(string& uName, string& uPassword);
+        Account& findAccount(string& name);
+        void addAcc(Account& r);
     private:
         Account signedIn;
     };
