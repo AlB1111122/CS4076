@@ -12,6 +12,8 @@ namespace sys{
         string login(string& uName, string& uPassword);
         Account& findAccount(string& name);
 
+        void createNewAccount(string& acName, string& acPassword);
+
         inline void addAccount(Account& r);
         void addAccounts(int size, Account accountsIn[]);
 

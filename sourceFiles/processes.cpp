@@ -44,4 +44,9 @@ namespace sys{
             addRecipie(recipieIn[i]);
         }
     }
+
+    void processes::createNewAccount(string& acName, string& acPassword) {
+        Account account(acName, acPassword);
+        addAccount(account);
+    }
 }

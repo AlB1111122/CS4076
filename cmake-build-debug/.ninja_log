@@ -1,17 +1,14 @@
 # ninja log v5
-1	704	1678899767155574466	CMakeFiles/projClionVer.dir/sourceFiles/processes.cpp.o	9c3ea4aff23339b0
-1	629	1678899767080575409	CMakeFiles/projClionVer.dir/sourceFiles/main.cpp.o	b50104d0863742c0
+1	682	1678901792398113720	CMakeFiles/projClionVer.dir/sourceFiles/processes.cpp.o	9c3ea4aff23339b0
+0	553	1678901802607985364	CMakeFiles/projClionVer.dir/sourceFiles/main.cpp.o	b50104d0863742c0
 1	292	1677954787627456306	CMakeFiles/projClionVer.dir/sourceFiles/tag.cpp.o	24d3d7828011d8d9
 2	814	1678645931265622609	CMakeFiles/projClionVer.dir/sourceFiles/system.cpp.o	3c8261c44840f8d2
-704	812	1678899767262573121	projClionVer	c99894e34581047d
-3	28	1678901791711122356	build.ninja	2ce742ebaead461d
+554	641	1678901802693984283	projClionVer	c99894e34581047d
+0	24	1678902517645996119	build.ninja	2ce742ebaead461d
 9	649	1678899334031019580	CMakeFiles/projClionVer.dir/sourceFiles/recipie.cpp.o	49a908ef6d809eb7
 9	416	1678899333798022509	CMakeFiles/projClionVer.dir/sourceFiles/account.cpp.o	5daeae9880e50272
 2	19	1678539644605227651	CMakeFiles/projClionVer.dir/sourceFiles/collection.cpp.o	b429b44a8bf469fa
 10	583	1678899333966020397	CMakeFiles/projClionVer.dir/sourceFiles/fileManager.cpp.o	f13f2fa34976aea4
-0	24	1678901791711122356	build.ninja	2ce742ebaead461d
-0	595	1678901792311114813	CMakeFiles/projClionVer.dir/sourceFiles/main.cpp.o	b50104d0863742c0
-1	682	1678901792398113720	CMakeFiles/projClionVer.dir/sourceFiles/processes.cpp.o	9c3ea4aff23339b0
-682	775	1678901792491112551	projClionVer	c99894e34581047d
-0	553	1678901802607985364	CMakeFiles/projClionVer.dir/sourceFiles/main.cpp.o	b50104d0863742c0
-554	641	1678901802693984283	projClionVer	c99894e34581047d
+1	679	1678906613092509384	CMakeFiles/projClionVer.dir/sourceFiles/main.cpp.o	b50104d0863742c0
+1	758	1678906613170508403	CMakeFiles/projClionVer.dir/sourceFiles/processes.cpp.o	9c3ea4aff23339b0
+758	861	1678906613273507108	projClionVer	c99894e34581047d
