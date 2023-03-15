@@ -42,7 +42,6 @@ public:
     std::vector<string>* getIngredients();
     std::vector<string>* getInstructions();
 
-
 private:
     string title;
     string author;

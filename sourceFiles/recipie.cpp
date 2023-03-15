@@ -101,4 +101,3 @@ std::vector<string>* Recipie::getIngredients(){
 std::vector<string>* Recipie::getInstructions(){
     return &instructions;
 }
-
