@@ -10,6 +10,7 @@ Recipie::Recipie(string titleIn, string authorIn, int prepTimeIn, int cookTimeIn
     prepTime = prepTimeIn;
     cookTime = cookTimeIn;
     setTime();
+
 }
 
 Recipie::Recipie(const Recipie &r) {
@@ -101,3 +102,26 @@ std::vector<string>* Recipie::getIngredients(){
 std::vector<string>* Recipie::getInstructions(){
     return &instructions;
 }
+
+void Recipie::addIngreditent(string &ingredient) {
+    ingredients.emplace_back(ingredient);
+}
+
+void Recipie::addIngreditents(int size, string ingredientsIn[]) {
+    for(int i = 0; i < size; i++){
+        addIngreditent(ingredientsIn[i]);
+    }
+}
+
+void Recipie::addInstruction(string &instruction) {
+    instructions.emplace_back(instruction);
+}
+
+void Recipie::addInstructions(int size, string instructionsIn[]) {
+    for(int i = 0; i < size; i++){
+        addInstruction(instructionsIn[i]);
+    }
+}
+
+
+

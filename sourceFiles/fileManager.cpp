@@ -1,3 +1,4 @@
+/*
 #include <sstream>
 #include "../headerFiles/fileManager.h"
 
@@ -63,10 +64,11 @@ Recipie fileManager::readRecipies(){//fix dosnt work
         while(lstream >> vecStringIn){
             instructionsIn.push_back(vecStringIn);
         }
-*/
+
     }
 
     accountsFile << std::endl;
     accountsFile.close();
     Recipie(titleIn, authorIn, rNoIn, prepTimeIn, cookTimeIn, timeCreatedStrIn, timeCreatedIn, ingredientsIn, instructionsIn);
 }
+*/

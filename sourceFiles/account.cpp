@@ -20,8 +20,18 @@ int Account::getAccountNo() const {
     return accountNo;
 }
 
-collection<int>* Account::getUsrRecipies() {
-    return &recipies;
+collection<Recipie>* Account::getUsrRecipies() {
+    return &usrRecipies;
+}
+
+void Account::addRecipie(Recipie &r) {
+    usrRecipies.emplace_back(r);
+}
+
+void Account::addRecipies(int size, Recipie recipieIn[]) {
+    for(int i = 0; i < size; i++){
+        usrRecipies[i] = recipieIn[i];
+    }
 }
 
 

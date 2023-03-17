@@ -1,3 +1,3 @@
-/home/shcool/Desktop/CS4076-EventDrivenPrograming/projClionVer/CS4076/cmake-build-debug/CMakeFiles/projClionVer.dir
-/home/shcool/Desktop/CS4076-EventDrivenPrograming/projClionVer/CS4076/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/shcool/Desktop/CS4076-EventDrivenPrograming/projClionVer/CS4076/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/shcool/Desktop/CS4076-EventDrivenPrograming/project/projClionVer/CS4076/CS4076/cmake-build-debug/CMakeFiles/projClionVer.dir
+/home/shcool/Desktop/CS4076-EventDrivenPrograming/project/projClionVer/CS4076/CS4076/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/shcool/Desktop/CS4076-EventDrivenPrograming/project/projClionVer/CS4076/CS4076/cmake-build-debug/CMakeFiles/rebuild_cache.dir

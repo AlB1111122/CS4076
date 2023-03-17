@@ -1,4 +1,4 @@
-# Install script for directory: /home/shcool/Desktop/CS4076-EventDrivenPrograming/projClionVer/CS4076
+# Install script for directory: /home/shcool/Desktop/CS4076-EventDrivenPrograming/project/projClionVer/CS4076/CS4076
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/shcool/Desktop/CS4076-EventDrivenPrograming/projClionVer/CS4076/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/shcool/Desktop/CS4076-EventDrivenPrograming/project/projClionVer/CS4076/CS4076/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

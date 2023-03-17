@@ -12,13 +12,15 @@ namespace sys{
         string login(string& uName, string& uPassword);
         Account& findAccount(string& name);
 
+        std::vector<Recipie> findRecipies(string& nameORauthor);
+
         void createNewAccount(string& acName, string& acPassword);
 
         inline void addAccount(Account& r);
         void addAccounts(int size, Account accountsIn[]);
 
         inline void addRecipie(Recipie& r);
-        void addRecipie(int size, Recipie recipieIn[]);
+        void addRecipies(int size, Recipie recipieIn[]);
 
     private:
         Account signedIn;

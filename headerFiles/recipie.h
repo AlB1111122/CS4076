@@ -13,6 +13,7 @@ using std::string;
 extern int g_noRecipies;
 class Recipie{
     friend class fileManager;
+
 public:
     explicit Recipie(string titleIn = "title", string authorIn = "author", int prepTimeIn = 10, int cookTimeIn = 20);
     Recipie(const Recipie &r);
@@ -38,6 +39,12 @@ public:
 
     [[nodiscard]] const time_t* getTimeCreated() const;
     [[nodiscard]] char * getTimeCreatedStr() const;
+
+    void addIngreditent(string& ingredient);
+    void addIngreditents(int size, string ingredientsIn[]);
+
+    void addInstruction(string& instruction);
+    void addInstructions(int size, string instructionsIn[]);
 
     std::vector<string>* getIngredients();
     std::vector<string>* getInstructions();

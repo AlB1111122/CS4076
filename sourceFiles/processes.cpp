@@ -27,6 +27,8 @@ namespace sys{
 
     void processes::addAccount(Account& r){
         accounts.push_back(r);
+        std::vector<Recipie>* acRecipies = r.getUsrRecipies();
+        addRecipies(acRecipies->size(), reinterpret_cast<Recipie *>(acRecipies));
     }
 
     void processes::addAccounts(int size, Account accountsIn[]){
@@ -39,7 +41,7 @@ namespace sys{
         recipies.push_back(r);
     }
 
-    void processes::addRecipie(int size, Recipie recipieIn[]){
+    void processes::addRecipies(int size, Recipie recipieIn[]){
         for(int i = 0; i < size; i++){
             addRecipie(recipieIn[i]);
         }
@@ -48,5 +50,11 @@ namespace sys{
     void processes::createNewAccount(string& acName, string& acPassword) {
         Account account(acName, acPassword);
         addAccount(account);
+    }
+
+    std::vector<Recipie> processes::findRecipies(string& nameORauthor) {//tofinish
+        std::vector<Recipie> returningRecipies;
+
+        return returningRecipies;
     }
 }
