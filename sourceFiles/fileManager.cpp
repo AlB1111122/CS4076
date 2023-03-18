@@ -7,7 +7,7 @@ void fileManager::writeRecipie(const Recipie& r) {
         std::cerr << "unable to open file accountsF for writing" << std::endl;
         exit(1);
     }
-    accountsFile << r.title << " " << r.author << " " << r.recipieNo << " " << r.prepTime << " " << r.cookTime << " " << r.time << " " << r.timeCreatedStr << " " << r.timeCreated << std::endl;
+    accountsFile << r.title << " " << r.author << " " << r.recipieNo << " " << r.prepTime << " " << r.cookTime << " " << r.time << " " << r.timeCreated << std::endl;
     for(auto & ingredient : r.ingredients){
         accountsFile << ingredient << " ";
     }
@@ -20,7 +20,7 @@ void fileManager::writeRecipie(const Recipie& r) {
 }
 
 
-Recipie fileManager::readRecipie() {//fix dosnt work
+Recipie fileManager::readRecipies() {
     std::ifstream accountsFile;
     accountsFile.open("../accountsF",std::fstream::in);
     if (accountsFile.fail()) {
@@ -38,18 +38,33 @@ Recipie fileManager::readRecipie() {//fix dosnt work
     std::vector<string> instructionsIn;
 
     std::string line;
-    while (getline(accountsFile, line)){
-        std::istringstream lineStream(line);
-        while (lineStream){
-            lineStream >> titleIn;
-            lineStream >> authorIn;
-            lineStream >> rNoIn;
-            lineStream >> prepTimeIn;
-            lineStream >> cookTimeIn;
-            lineStream >> timeCreatedIn;
-        }
-        ingredientsIn.emplace_back("instruction 1");
-        instructionsIn.emplace_back("ingredient 1");
+    getline(accountsFile, line);
+    std::istringstream lineStream(line);
+    while (lineStream){
+        lineStream >> titleIn;
+        lineStream >> authorIn;
+        lineStream >> rNoIn;
+        lineStream >> prepTimeIn;
+        lineStream >> cookTimeIn;
+        lineStream >> timeCreatedIn;
+    }
+    getline(accountsFile, line);
+    std::istringstream ingStream(line);
+    while(ingStream){
+        int i = 0;
+        string ing;
+        ingStream >> ing;
+        ingredientsIn.emplace_back(ing);
+        i++;
+    }
+    getline(accountsFile, line);
+    std::istringstream instStream(line);
+    while(instStream){
+        int i = 0;
+        string inst;
+        instStream >> inst;
+        instructionsIn.emplace_back(inst);
+        i++;
     }
     accountsFile.close();
     return Recipie(titleIn, authorIn, rNoIn, prepTimeIn, cookTimeIn, timeCreatedIn, ingredientsIn,instructionsIn);

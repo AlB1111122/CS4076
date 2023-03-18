@@ -17,6 +17,9 @@ int main() {
     //r.addInstruction((string &) "instruction 1");
     //r.addIngreditent((string &) "ingredient 1");
     //f.writeRecipie(r);
-    Recipie rec(f.readRecipie());
-    cout << rec.getTitle() << " " << rec.getTimeCreatedStr() << " " << rec.getIngredients()->at(0) << " " <<  rec.getInstructions()->at(0) << endl;
+    Recipie rec(f.readRecipies());
+    cout << rec.getTitle() << " " << rec.getTimeCreatedStr() << " " << rec.getIngredients()->at(0) << " " <<  rec.getInstructions()->at(0)
+    << " " << rec.getIngredients()->at(1) << " " <<  rec.getInstructions()->at(1)
+    << " " << rec.getIngredients()->at(2) << " " <<  rec.getInstructions()->at(2)
+    << " " << rec.getIngredients()->at(3) << " " <<  rec.getInstructions()->at(3) << endl;
 }
