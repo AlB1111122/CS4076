@@ -26,15 +26,16 @@ Recipie::Recipie(const Recipie &r) {
 }
 
 //char title[30], char author[30], int recipieNo, int prepTime, int cookTime, int time, char* timeCreatedStr = new char[17], time_t timeCreated, std::vector<char*> ingredients, std::vector<char*> instructions,
-Recipie::Recipie(string& titleIn, string& authorIn, int rNoIn, int prepTimeIn, int cookTimeIn, char* timeCreatedStrIn,
-                 time_t timeCreatedIn, std::vector<string>& ingredientsIn, std::vector<string>& instructionsIn) {
-    title = titleIn;
-    author = authorIn;
+Recipie::Recipie(string titleIn, string authorIn, int rNoIn, int prepTimeIn, int cookTimeIn,
+                 time_t timeCreatedIn, std::vector<string> ingredientsIn, std::vector<string> instructionsIn) {
+    title = std::move(titleIn);
+    author = std::move(authorIn);
     recipieNo = rNoIn;
     prepTime = prepTimeIn;
     cookTime = cookTimeIn;
     setTime();
-    strcpy(timeCreatedStr,timeCreatedStrIn);
+    struct tm tm = *localtime(getTimeCreated());
+    snprintf(timeCreatedStr, 17, "%d-%02d-%02d %02d:%02d\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min);
     timeCreated = timeCreatedIn;
     ingredients = ingredientsIn;
     instructions = instructionsIn;
@@ -122,6 +123,3 @@ void Recipie::addInstructions(int size, string instructionsIn[]) {
         addInstruction(instructionsIn[i]);
     }
 }
-
-
-

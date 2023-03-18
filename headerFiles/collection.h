@@ -5,17 +5,14 @@
 using std::string;
 
 namespace col {
-    template<typename T>class collection : public std::vector<T, std::allocator<T>> {
-    public:
+template<typename T>class collection : public std::vector<T, std::allocator<T>>{
+public:
         explicit collection(string nameIn = "Collection name"): name(std::move(nameIn)){}
 
-        void setName(string& nameIn){
-            name = nameIn;
-        }
+        void setName(string& nameIn){name = nameIn;}
 
-        string getName(){
-            return name;
-        }
+        string getName(){return name;}
+
     private:
         string name;
     };

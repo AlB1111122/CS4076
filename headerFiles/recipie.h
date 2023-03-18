@@ -12,13 +12,14 @@ using std::string;
 
 extern int g_noRecipies;
 class Recipie{
+
     friend class fileManager;
 
 public:
     explicit Recipie(string titleIn = "title", string authorIn = "author", int prepTimeIn = 10, int cookTimeIn = 20);
     Recipie(const Recipie &r);
-    Recipie(string& titleIn, string& author, int rNoIn, int prepTimeIn, int cookTimeIn, char* timeCreatedStrIn,
-            time_t timeCreatedIn, std::vector<string>& ingredientsIn, std::vector<string>& instructionsIn);
+    Recipie(string titleIn, string authorIn, int rNoIn, int prepTimeIn, int cookTimeIn,
+            time_t timeCreatedIn, std::vector<string> ingredientsIn, std::vector<string> instructionsIn);
     ~Recipie();
 
     [[nodiscard]] string getTitle() const;
