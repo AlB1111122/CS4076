@@ -1,3 +1,5 @@
+#include <utility>
+
 #include "../headerFiles/recipie.h"
 Recipie::Recipie(string titleIn, string authorIn, int prepTimeIn, int cookTimeIn) {//string titleIn,string authorIn,
     g_noRecipies++;
@@ -39,8 +41,8 @@ Recipie::Recipie(string titleIn, string authorIn, int rNoIn, int prepTimeIn, int
     struct tm tm = *localtime(&timeCreated);
     snprintf(timeCreatedStr, 17, "%d-%02d-%02d %02d:%02d\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min);
 
-    ingredients = ingredientsIn;
-    instructions = instructionsIn;
+    ingredients = std::move(ingredientsIn);
+    instructions = std::move(instructionsIn);
 }
 
 Recipie::~Recipie() {

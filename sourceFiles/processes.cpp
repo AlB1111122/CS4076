@@ -2,13 +2,13 @@
 namespace sys{
 
     string processes::login(string& uName, string& uPassword){
-        Account attemptingIn;
+        Account* attemptingIn;
         try {
-            attemptingIn = findAccount(uName);
+            attemptingIn = &findAccount(uName);
         }catch(objectNotFoundExeption &e){
             return uName + " " + e.exeption();
         }
-        if(attemptingIn.getPassword() == uPassword){
+        if(attemptingIn->getPassword() == uPassword){
             signedIn = attemptingIn;
             return "Welcome back " + uName;
         }else{
@@ -28,7 +28,7 @@ namespace sys{
     void processes::addAccount(Account& r){
         accounts.push_back(r);
         std::vector<Recipie>* acRecipies = r.getUsrRecipies();
-        addRecipies(acRecipies->size(), reinterpret_cast<Recipie *>(acRecipies));
+        addRecipies(*acRecipies);
     }
 
     void processes::addAccounts(int size, Account accountsIn[]){
@@ -38,12 +38,12 @@ namespace sys{
     }
 
     void processes::addRecipie(Recipie& r){
-        recipies.push_back(r);
+        recipies.push_back(&r);
     }
 
-    void processes::addRecipies(int size, Recipie recipieIn[]){
-        for(int i = 0; i < size; i++){
-            addRecipie(recipieIn[i]);
+    void processes::addRecipies(std::vector<Recipie> & recipieIn){
+        for(auto & i : recipieIn){
+            addRecipie(i);
         }
     }
 
@@ -52,9 +52,9 @@ namespace sys{
         addAccount(account);
     }
 
-    std::vector<Recipie> processes::findRecipies(string& nameORauthor) {//tofinish
-        std::vector<Recipie> returningRecipies;
+    std::vector<Recipie*> processes::findRecipies(string& nameORauthor) {//tofinish
+        //std::vector<Recipie> returningRecipies;
 
-        return returningRecipies;
+        return recipies;
     }
 }

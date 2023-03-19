@@ -12,7 +12,7 @@ namespace sys{
         string login(string& uName, string& uPassword);
         Account& findAccount(string& name);
 
-        std::vector<Recipie> findRecipies(string& nameORauthor);
+        std::vector<Recipie*> findRecipies(string& nameORauthor);
 
         void createNewAccount(string& acName, string& acPassword);
 
@@ -20,12 +20,12 @@ namespace sys{
         void addAccounts(int size, Account accountsIn[]);
 
         inline void addRecipie(Recipie& r);
-        void addRecipies(int size, Recipie recipieIn[]);
+        void addRecipies(std::vector<Recipie> & recipieIn);
 
     private:
-        Account signedIn;
+        Account* signedIn;
         std::vector<Account> accounts;
-        std::vector<Recipie> recipies;
+        std::vector<Recipie*> recipies;
     };
 }
 #endif //PROJCLIONVER_PROCESSES_H

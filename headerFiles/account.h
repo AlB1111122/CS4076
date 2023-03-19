@@ -4,13 +4,14 @@
 #include <utility>
 #include  "../headerFiles/collection.h"
 #include  "../headerFiles/recipie.h"
+
 using col::collection;
 using std::string;
 
 extern int g_noAccounts;
 class Account {
     public:
-        Account(string nameIn = "name", string passwordIn = "password"):
+        Account(string nameIn, string passwordIn):
         name(std::move(nameIn)), password(std::move(passwordIn)), usrRecipies("User created recipies"){
             g_noAccounts++;
             accountNo = g_noAccounts;

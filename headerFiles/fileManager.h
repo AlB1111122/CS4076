@@ -10,7 +10,7 @@ using std::endl;
 class fileManager {
 public:
     static void writeRecipie(const Recipie& r);
-    static Recipie readRecipies();
+    static std::vector<Recipie> readRecipies();
 
     //void writeCollection(const col::collection<class T>& c);
 };

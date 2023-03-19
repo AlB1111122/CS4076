@@ -20,13 +20,15 @@ void fileManager::writeRecipie(const Recipie& r) {
 }
 
 
-Recipie fileManager::readRecipies() {
+std::vector<Recipie> fileManager::readRecipies() {
     std::ifstream accountsFile;
     accountsFile.open("../accountsF",std::fstream::in);
     if (accountsFile.fail()) {
         std::cerr << "unable to open file accountsF for reading" << std::endl;
         exit(1);
     }
+
+    std::vector<Recipie> recipies;
 
     string titleIn;
     string authorIn;
@@ -38,33 +40,43 @@ Recipie fileManager::readRecipies() {
     std::vector<string> instructionsIn;
 
     std::string line;
-    getline(accountsFile, line);
-    std::istringstream lineStream(line);
-        lineStream >> titleIn;
-        lineStream >> authorIn;
-        lineStream >> rNoIn;
-        lineStream >> prepTimeIn;
-        lineStream >> cookTimeIn;
-        lineStream >> timeCreatedIn;
+    while(getline(accountsFile, line)) {
 
-    getline(accountsFile, line);
-    std::istringstream ingStream(line);
-    while(ingStream){
-        int i = 0;
-        string ing;
-        ingStream >> ing;
-        ingredientsIn.emplace_back(ing);
-        i++;
-    }
-    getline(accountsFile, line);
-    std::istringstream instStream(line);
-    while(instStream){
-        int i = 0;
-        string inst;
-        instStream >> inst;
-        instructionsIn.emplace_back(inst);
-        i++;
+        std::istringstream lineStream(line);
+        while(lineStream) {
+            lineStream >> titleIn;
+            lineStream >> authorIn;
+            lineStream >> rNoIn;
+            lineStream >> prepTimeIn;
+            lineStream >> cookTimeIn;
+            lineStream >> timeCreatedIn;
+        }
+        getline(accountsFile, line);
+        std::istringstream ingStream(line);
+        while (ingStream) {
+            string ing;
+            ingStream >> ing;
+            ingredientsIn.emplace_back(ing);
+        }
+        getline(accountsFile, line);
+        std::istringstream instStream(line);
+        while (instStream) {
+            string inst;
+            instStream >> inst;
+            instructionsIn.emplace_back(inst);
+        }
+        recipies.emplace_back(Recipie(titleIn, authorIn, rNoIn, prepTimeIn, cookTimeIn, timeCreatedIn, ingredientsIn, instructionsIn));
+
+        titleIn = "";
+        authorIn = "";
+        rNoIn = 0;
+        prepTimeIn = 0;
+        cookTimeIn = 0;
+        timeCreatedIn = 0;
+        ingredientsIn.clear();
+        instructionsIn.clear();
+
     }
     accountsFile.close();
-    return Recipie(Recipie(titleIn, authorIn, rNoIn, prepTimeIn, cookTimeIn, timeCreatedIn, ingredientsIn,instructionsIn));
+    return recipies;
 }
