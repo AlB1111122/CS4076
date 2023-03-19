@@ -2,8 +2,8 @@
 #include "../headerFiles/recipie.h"
 #include "../headerFiles/account.h"
 #include "../headerFiles/collection.h"
-#include "../headerFiles/fileManager.h"
 #include "../headerFiles/processes.h"
+#include "../headerFiles/options.h"
 using sys::processes;
 using std::cout;
 using std::endl;
@@ -12,23 +12,7 @@ using std::endl;
 int g_noAccounts = 0;
 int g_noRecipies = 0;
 
-
 int main() {
-    string str = "bleh";
-    processes processes;
-    Recipie recipie;
-    Account ac(str,str);
-
-    recipie.addInstruction(str);
-    recipie.addIngreditent(str);
-
-
-    ac.addRecipie(recipie);
-    processes.addAccount(ac);
-
-    std::vector<Recipie *> vector = processes.findRecipies(str);
-
-    cout << vector[0]->getTitle();
 
 }
 /*

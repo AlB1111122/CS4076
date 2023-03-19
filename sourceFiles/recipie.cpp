@@ -1,7 +1,7 @@
 #include <utility>
 
 #include "../headerFiles/recipie.h"
-Recipie::Recipie(string titleIn, string authorIn, int prepTimeIn, int cookTimeIn) {//string titleIn,string authorIn,
+Recipie::Recipie(string titleIn, string authorIn, int prepTimeIn, int cookTimeIn, uint8_t bitWord) {//string titleIn,string authorIn,
     g_noRecipies++;
     recipieNo = g_noRecipies;
     timeCreated = std::time(nullptr);
@@ -12,7 +12,7 @@ Recipie::Recipie(string titleIn, string authorIn, int prepTimeIn, int cookTimeIn
     prepTime = prepTimeIn;
     cookTime = cookTimeIn;
     setTime();
-
+    options.dietWord = bitWord;
 }
 
 Recipie::Recipie(const Recipie &r) {
@@ -27,23 +27,6 @@ Recipie::Recipie(const Recipie &r) {
     time = r.getTime();
 }
 
-//char title[30], char author[30], int recipieNo, int prepTime, int cookTime, int time, char* timeCreatedStr = new char[17], time_t timeCreated, std::vector<char*> ingredients, std::vector<char*> instructions,
-Recipie::Recipie(string titleIn, string authorIn, int rNoIn, int prepTimeIn, int cookTimeIn,
-                 long int timeCreatedIn, std::vector<string> ingredientsIn, std::vector<string> instructionsIn) {
-    title = std::move(titleIn);
-    author = std::move(authorIn);
-    recipieNo = rNoIn;
-    prepTime = prepTimeIn;
-    cookTime = cookTimeIn;
-    setTime();
-
-    timeCreated = timeCreatedIn;
-    struct tm tm = *localtime(&timeCreated);
-    snprintf(timeCreatedStr, 17, "%d-%02d-%02d %02d:%02d\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min);
-
-    ingredients = std::move(ingredientsIn);
-    instructions = std::move(instructionsIn);
-}
 
 Recipie::~Recipie() {
     delete[] timeCreatedStr;
@@ -82,6 +65,9 @@ int Recipie::getCookTime() const{
 }
 void Recipie::setCookTime(int cookTimeIn){
     Recipie::cookTime = cookTimeIn;
+    if(cookTime == 0){
+        options.noOven = 1;
+    }
     setTime();
 }
 
@@ -90,6 +76,9 @@ int Recipie::getTime() const{
 }
 void Recipie::setTime(){
     time = cookTime + prepTime;
+    if(time < 20){
+        options.quick = 1;
+    }
 }
 
 const time_t*  Recipie::getTimeCreated() const{
@@ -127,3 +116,12 @@ void Recipie::addInstructions(int size, string instructionsIn[]) {
         addInstruction(instructionsIn[i]);
     }
 }
+
+op::options Recipie::getOptions() const {
+    return options;
+}
+
+void Recipie::setOptions(uint8_t bitWord) {
+    options.dietWord = bitWord;
+}
+

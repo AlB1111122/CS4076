@@ -4,6 +4,7 @@
 #include "../headerFiles/account.h"
 #include "../headerFiles/collection.h"
 #include "../headerFiles/objectNotFoundExeption.h"
+#include "../headerFiles/options.h"
 #include <algorithm>
 
 namespace sys{

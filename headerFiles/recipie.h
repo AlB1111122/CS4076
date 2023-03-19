@@ -10,17 +10,14 @@ using std::string;
 #include <vector>
 #include <fstream>
 #include <iostream>
+#include "../headerFiles/options.h"
 
 extern int g_noRecipies;
+
 class Recipie{
-
-    friend class fileManager;
-
 public:
-    explicit Recipie(string titleIn = "title", string authorIn = "author", int prepTimeIn = 10, int cookTimeIn = 20);
+    explicit Recipie(string titleIn = "title", string authorIn = "author", int prepTimeIn = 10, int cookTimeIn = 20, uint8_t bitWord = 00000000);
     Recipie(const Recipie &r);
-    Recipie(string titleIn, string authorIn, int rNoIn, int prepTimeIn, int cookTimeIn,
-            long int timeCreatedIn, std::vector<string> ingredientsIn, std::vector<string> instructionsIn);
     ~Recipie();
 
     [[nodiscard]] string getTitle() const;
@@ -42,6 +39,9 @@ public:
     [[nodiscard]] const time_t* getTimeCreated() const;
     [[nodiscard]] char * getTimeCreatedStr() const;
 
+    [[nodiscard]] op::options getOptions() const;
+    void setOptions(uint8_t bitWord);
+
     void addIngreditent(string& ingredient);
     void addIngreditents(int size, string ingredientsIn[]);
 
@@ -60,8 +60,10 @@ private:
     int time;
     char* timeCreatedStr = new char[17];
     time_t timeCreated;
+    op::options options;
     std::vector<string> ingredients;
     std::vector<string> instructions;
     void setTime();
+
 };
 #endif // RECIPIE_H
