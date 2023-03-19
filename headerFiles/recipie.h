@@ -5,6 +5,7 @@
 #include <string>
 using std::string;
 #include <ctime>
+#include <chrono>
 #include <cstdio>
 #include <vector>
 #include <fstream>
@@ -19,7 +20,7 @@ public:
     explicit Recipie(string titleIn = "title", string authorIn = "author", int prepTimeIn = 10, int cookTimeIn = 20);
     Recipie(const Recipie &r);
     Recipie(string titleIn, string authorIn, int rNoIn, int prepTimeIn, int cookTimeIn,
-            time_t timeCreatedIn, std::vector<string> ingredientsIn, std::vector<string> instructionsIn);
+            long int timeCreatedIn, std::vector<string> ingredientsIn, std::vector<string> instructionsIn);
     ~Recipie();
 
     [[nodiscard]] string getTitle() const;

@@ -7,7 +7,7 @@ void fileManager::writeRecipie(const Recipie& r) {
         std::cerr << "unable to open file accountsF for writing" << std::endl;
         exit(1);
     }
-    accountsFile << r.title << " " << r.author << " " << r.recipieNo << " " << r.prepTime << " " << r.cookTime << " " << r.time << " " << r.timeCreated << std::endl;
+    accountsFile << r.title << " " << r.author << " " << r.recipieNo << " " << r.prepTime << " " << r.cookTime << " " << r.timeCreated << std::endl;
     for(auto & ingredient : r.ingredients){
         accountsFile << ingredient << " ";
     }
@@ -33,21 +33,20 @@ Recipie fileManager::readRecipies() {
     int rNoIn;
     int prepTimeIn;
     int cookTimeIn;
-    time_t timeCreatedIn;
+    long int timeCreatedIn;
     std::vector<string> ingredientsIn;
     std::vector<string> instructionsIn;
 
     std::string line;
     getline(accountsFile, line);
     std::istringstream lineStream(line);
-    while (lineStream){
         lineStream >> titleIn;
         lineStream >> authorIn;
         lineStream >> rNoIn;
         lineStream >> prepTimeIn;
         lineStream >> cookTimeIn;
         lineStream >> timeCreatedIn;
-    }
+
     getline(accountsFile, line);
     std::istringstream ingStream(line);
     while(ingStream){
@@ -67,5 +66,5 @@ Recipie fileManager::readRecipies() {
         i++;
     }
     accountsFile.close();
-    return Recipie(titleIn, authorIn, rNoIn, prepTimeIn, cookTimeIn, timeCreatedIn, ingredientsIn,instructionsIn);
+    return Recipie(Recipie(titleIn, authorIn, rNoIn, prepTimeIn, cookTimeIn, timeCreatedIn, ingredientsIn,instructionsIn));
 }
