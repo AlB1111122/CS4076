@@ -11,7 +11,19 @@ using std::endl;
 int g_noAccounts = 0;
 int g_noRecipies = 0;
 
+std::ostream& operator<<(std::ostream& os, const printable& p){
+    os << p.print();
+    return os;
+}
+
 int main() {
+    Recipie r;
+    Recipie r2;
+    string s = "test";
+    col::collection<Recipie> coll(s);
+    coll.push_back(r);
+    coll.push_back(r2);
+    cout << coll;
 }
 /*
  *

@@ -34,5 +34,13 @@ void Account::addRecipies(int size, Recipie recipieIn[]) {
     }
 }
 
-
-
+string Account::print() const {
+    return name + " Account number: " + std::to_string(accountNo) + "\n";
+}
+/*
+ *
+ string name
+ string password;
+ int accountNo;
+ collection<Recipie> usrRecipies;
+ */

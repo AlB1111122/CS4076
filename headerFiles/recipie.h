@@ -11,10 +11,11 @@ using std::string;
 #include <fstream>
 #include <iostream>
 #include "../headerFiles/options.h"
+#include "printable.h"
 
 extern int g_noRecipies;
 
-class Recipie{
+class Recipie : public printable{
     friend class processes;
 public:
     explicit Recipie(string titleIn = "title", string authorIn = "author", int prepTimeIn = 10, int cookTimeIn = 20, uint8_t bitWord = 00000000);
@@ -51,6 +52,8 @@ public:
 
     std::vector<string>* getIngredients();
     std::vector<string>* getInstructions();
+
+    [[nodiscard]] string print() const override;
 
 private:
     string title;

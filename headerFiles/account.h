@@ -4,12 +4,13 @@
 #include <utility>
 #include  "../headerFiles/collection.h"
 #include  "../headerFiles/recipie.h"
+#include  "../headerFiles/printable.h"
 
 using col::collection;
 using std::string;
 
 extern int g_noAccounts;
-class Account {
+class Account : public printable{
     public:
         Account(string nameIn, string passwordIn):
         name(std::move(nameIn)), password(std::move(passwordIn)), usrRecipies("User created recipies"){
@@ -27,6 +28,8 @@ class Account {
         collection<Recipie>* getUsrRecipies();
         void addRecipie(Recipie& r);
         void addRecipies(int size, Recipie recipieIn[]);
+
+        [[nodiscard]] string print() const override;
 
     private:
         string name;

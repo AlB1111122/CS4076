@@ -125,3 +125,9 @@ void Recipie::setOptions(uint8_t bitWord) {
     options.dietWord = bitWord;
 }
 
+string Recipie::print() const {
+    string info = author + " by " + author + "\n" +
+            timeCreatedStr;
+    return info;
+}
+
