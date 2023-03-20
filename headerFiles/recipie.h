@@ -15,6 +15,7 @@ using std::string;
 extern int g_noRecipies;
 
 class Recipie{
+    friend class processes;
 public:
     explicit Recipie(string titleIn = "title", string authorIn = "author", int prepTimeIn = 10, int cookTimeIn = 20, uint8_t bitWord = 00000000);
     Recipie(const Recipie &r);

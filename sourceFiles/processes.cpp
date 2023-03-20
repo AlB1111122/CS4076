@@ -1,6 +1,5 @@
 #include "../headerFiles/processes.h"
 namespace sys{
-
     string processes::login(string& uName, string& uPassword){
         Account* attemptingIn;
         try {
@@ -53,7 +52,8 @@ namespace sys{
     }
 
     std::vector<Recipie*> processes::findRecipies(string& nameORauthor) {//tofinish
-        //std::vector<Recipie> returningRecipies;
+        std::vector<Recipie> returningRecipies;
+        
 
         return recipies;
     }

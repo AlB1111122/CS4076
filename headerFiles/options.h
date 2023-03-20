@@ -15,13 +15,5 @@ namespace op {
         };
         uint8_t dietWord;
     };
-
-    bool operator==(const options & op1,const options & op2){
-        if((op1.dietWord & op2.dietWord) != 0){
-            return true;
-        }else{
-            return false;
-        }
-    }
 }
 #endif //PROJCLIONVER_OPTIONS_H

@@ -4,7 +4,6 @@
 #include "../headerFiles/collection.h"
 #include "../headerFiles/processes.h"
 #include "../headerFiles/options.h"
-using sys::processes;
 using std::cout;
 using std::endl;
 #include <chrono>
@@ -13,7 +12,6 @@ int g_noAccounts = 0;
 int g_noRecipies = 0;
 
 int main() {
-
 }
 /*
  *
