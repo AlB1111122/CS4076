@@ -12,17 +12,10 @@ int g_noAccounts = 0;
 int g_noRecipies = 0;
 
 int main() {
-    Account a;
-    string n = "user 1";
-    string pa = "password1";
-    Account b(n,pa);
-    sys::processes p;
-
-    Account acs[] = {a,b};
-    p.addAccounts(2,acs);
-
-    cout << p.login(n,pa);
-
+    Recipie r;
+    bool* a = new bool[]{true,false,true,true,false,true,true,true};
+    r.setOptions(a);
+    cout << r.print();
 }
 /*
  *

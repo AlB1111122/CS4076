@@ -56,7 +56,7 @@ namespace sys{
         addAccount(account);
     }
 
-    std::vector<Recipie*> processes::findRecipies(string& nameORauthor) {//tofinish
+    std::vector<Recipie*> processes::findRecipies(string& nameORauthor, uint8_t opsBitword, long int minDate, long int maxDate) {//can search by name/author, options, date,
         std::vector<Recipie> returningRecipies;
         
 

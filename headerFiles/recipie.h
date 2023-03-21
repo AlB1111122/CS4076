@@ -18,7 +18,7 @@ extern int g_noRecipies;
 class Recipie : public printable{
     friend class processes;
 public:
-    explicit Recipie(string titleIn = "title", string authorIn = "author", int prepTimeIn = 10, int cookTimeIn = 20, uint8_t bitWord = 00000000);
+    explicit Recipie(string titleIn = "title", string authorIn = "author", int prepTimeIn = 10, int cookTimeIn = 20);
     Recipie(const Recipie &r);
     ~Recipie();
 
@@ -42,7 +42,7 @@ public:
     [[nodiscard]] char * getTimeCreatedStr() const;
 
     [[nodiscard]] op::options getOptions() const;
-    void setOptions(uint8_t bitWord);
+    void setOptions(bool ops[8]);
 
     void addIngreditent(string& ingredient);
     void addIngreditents(int size, string ingredientsIn[]);
@@ -53,6 +53,7 @@ public:
     std::vector<string>* getIngredients();
     std::vector<string>* getInstructions();
 
+    [[nodiscard]] string getTagsStr() const;
     [[nodiscard]] string print() const override;
 
 private:
@@ -68,6 +69,5 @@ private:
     std::vector<string> ingredients;
     std::vector<string> instructions;
     void setTime();
-
 };
 #endif // RECIPIE_H

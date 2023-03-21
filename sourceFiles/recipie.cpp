@@ -1,7 +1,7 @@
 #include <utility>
 
 #include "../headerFiles/recipie.h"
-Recipie::Recipie(string titleIn, string authorIn, int prepTimeIn, int cookTimeIn, uint8_t bitWord) {//string titleIn,string authorIn,
+Recipie::Recipie(string titleIn, string authorIn, int prepTimeIn, int cookTimeIn) {//string titleIn,string authorIn,
     g_noRecipies++;
     recipieNo = g_noRecipies;
     timeCreated = std::time(nullptr);
@@ -12,7 +12,7 @@ Recipie::Recipie(string titleIn, string authorIn, int prepTimeIn, int cookTimeIn
     prepTime = prepTimeIn;
     cookTime = cookTimeIn;
     setTime();
-    options.dietWord = bitWord;
+    //options.dietWord = bitWord;
 }
 
 Recipie::Recipie(const Recipie &r) {
@@ -25,6 +25,7 @@ Recipie::Recipie(const Recipie &r) {
     prepTime = r.getPrepTime();
     cookTime = r.getCookTime();
     time = r.getTime();
+    options = r.getOptions();
 }
 
 
@@ -121,13 +122,59 @@ op::options Recipie::getOptions() const {
     return options;
 }
 
-void Recipie::setOptions(uint8_t bitWord) {
-    options.dietWord = bitWord;
+void Recipie::setOptions(bool *ops) {
+    options.vegan = ops[0];
+    options.vegetarian = ops[1];
+    options.sugarFree = ops[2];
+    options.glutenFree = ops[3];
+    options.shellfishFree = ops[4];
+    options.dairyFree = ops[5];
+    options.quick = ops[6];
+    options.noOven = ops[7];
 }
 
 string Recipie::print() const {
-    string info = author + " by " + author + "\n" +
+    string info = title + " by " + author + "\n" +
+            getTagsStr() +
             timeCreatedStr;
     return info;
 }
+
+string Recipie::getTagsStr() const{
+    string tags = "";
+    struct cmpr{uint16_t i:1 = 1;}cmpr;
+    string* arrayOps = new string[] {"vegan", "vegetarian", "sugar free", "gluten free", "shellfish free", "dairy free", "quick", "no oven" };
+    if(options.vegan == cmpr.i){
+        tags.append(arrayOps[0]).append(", ");
+    }
+    if(options.vegetarian == cmpr.i){
+        tags.append(arrayOps[1]).append(", ");
+    }
+    if(options.sugarFree == cmpr.i){
+        tags.append(arrayOps[2]).append(", ");
+    }
+    if(options.glutenFree == cmpr.i){
+        tags.append(arrayOps[3]).append(", ");
+    }
+    if(options.shellfishFree == cmpr.i){
+        tags.append(arrayOps[4]).append(", ");
+    }
+    if(options.dairyFree == cmpr.i){
+        tags.append(arrayOps[5]).append(", ");
+    }
+    if(options.quick == cmpr.i){
+        tags.append(arrayOps[6]).append(", ");
+    }
+    if(options.noOven == cmpr.i){
+        tags.append(arrayOps[7]).append(", ");
+    }
+    if(!tags.empty()) {
+        tags.pop_back();
+        tags.pop_back();
+        return tags.append("\n");
+    }
+    return "";
+}
+
+
 
