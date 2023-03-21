@@ -1,32 +1,36 @@
 #include "../headerFiles/processes.h"
 namespace sys{
 
+    processes::~processes() {
+        signedIn = nullptr;
+        delete signedIn;
+    }
+
     string processes::login(string& uName, string& uPassword){
         Account* attemptingIn;
         try {
-            attemptingIn = &findAccount(uName);
+            attemptingIn = findAccount(uName);
         }catch(objectNotFoundExeption &e){
             return uName + " " + e.exeption();
         }
         if(attemptingIn->getPassword() == uPassword){
             signedIn = attemptingIn;
-            return "Welcome back " + uName;
+            return "Welcome back " + signedIn->getName();
         }else{
             return "Username or password is incorrect";
         }
     }
 
-    Account& processes::findAccount(string& name){
-        auto it = find_if(accounts.begin(), accounts.end(), [&name](const Account& obj) {return obj.getName() == name;});
-        if (it != accounts.end()){
-            return *it;
-        }else{
+    Account* processes::findAccount(string& name){
+        try {
+            return &accounts.at(name);//i know this is a bad use of exeptions but i could think of anywhere else
+        }catch(std::exception &e){
             throw objectNotFoundExeption();
         }
     }
 
     void processes::addAccount(Account& r){
-        accounts.push_back(r);
+        accounts[r.getName()] = r;
         std::vector<Recipie>* acRecipies = r.getUsrRecipies();
         addRecipies(*acRecipies);
     }
@@ -58,4 +62,6 @@ namespace sys{
 
         return recipies;
     }
+
+
 }

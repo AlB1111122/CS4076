@@ -12,13 +12,17 @@ int g_noAccounts = 0;
 int g_noRecipies = 0;
 
 int main() {
-    Recipie r;
-    Recipie r2;
-    string s = "test";
-    col::collection<Recipie> coll(s);
-    coll.push_back(r);
-    coll.push_back(r2);
-    cout << coll;
+    Account a;
+    string n = "user 1";
+    string pa = "password1";
+    Account b(n,pa);
+    sys::processes p;
+
+    Account acs[] = {a,b};
+    p.addAccounts(2,acs);
+
+    cout << p.login(n,pa);
+
 }
 /*
  *

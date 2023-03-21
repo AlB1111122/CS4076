@@ -6,12 +6,14 @@
 #include "../headerFiles/objectNotFoundExeption.h"
 #include "../headerFiles/options.h"
 #include <algorithm>
+#include <unordered_map>
 
 namespace sys{
     class processes {
     public:
+        ~processes();
         string login(string& uName, string& uPassword);
-        Account& findAccount(string& name);
+        Account* findAccount(string& name);
 
         std::vector<Recipie*> findRecipies(string& nameORauthor);
 
@@ -24,8 +26,8 @@ namespace sys{
         void addRecipies(std::vector<Recipie> & recipieIn);
 
     private:
-        Account* signedIn;
-        std::vector<Account> accounts;
+        Account* signedIn = new Account;
+        std::unordered_map<string, Account> accounts;
         std::vector<Recipie*> recipies;
     };
 }

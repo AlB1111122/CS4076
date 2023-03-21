@@ -5,18 +5,19 @@
 #include  "../headerFiles/collection.h"
 #include  "../headerFiles/recipie.h"
 #include  "../headerFiles/printable.h"
-
 using col::collection;
 using std::string;
 
 extern int g_noAccounts;
+
 class Account : public printable{
     public:
-        Account(string nameIn, string passwordIn):
+        explicit Account(string nameIn = "name", string passwordIn = "password"):
         name(std::move(nameIn)), password(std::move(passwordIn)), usrRecipies("User created recipies"){
             g_noAccounts++;
             accountNo = g_noAccounts;
         }
+        Account(Account& a);
         void setName(string& nameIn);
         [[nodiscard]]string getName() const;
 

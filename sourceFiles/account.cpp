@@ -3,6 +3,19 @@
 void Account::setName(string& nameIn){
     name = nameIn;
 }
+/*
+ *         string name;
+        string password;
+        int accountNo;
+        collection<Recipie> usrRecipies;
+ */
+Account::Account(Account &a) {
+    name = a.getName();
+    password = a.getPassword();
+    accountNo = a.getAccountNo();
+    usrRecipies = *a.getUsrRecipies();
+}
+
 
 string Account::getName() const{
     return name;
@@ -37,10 +50,5 @@ void Account::addRecipies(int size, Recipie recipieIn[]) {
 string Account::print() const {
     return name + " Account number: " + std::to_string(accountNo) + "\n";
 }
-/*
- *
- string name
- string password;
- int accountNo;
- collection<Recipie> usrRecipies;
- */
+
+
