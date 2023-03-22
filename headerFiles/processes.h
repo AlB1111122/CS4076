@@ -15,7 +15,7 @@ namespace sys{
         string login(string& uName, string& uPassword);
         Account* findAccount(string& name);
 
-        std::vector<Recipie*> findRecipies(string& nameORauthor, uint8_t opsBitword, long int minDate, long int maxDate);
+        std::vector<Recipie*> findRecipies(string& nameORauthor, bool* ops, long int minDate, long int maxDate);
 
         void createNewAccount(string& acName, string& acPassword);
 
@@ -25,6 +25,7 @@ namespace sys{
         inline void addRecipie(Recipie& r);
         void addRecipies(std::vector<Recipie> & recipieIn);
 
+        std::vector<Recipie*> getRecipies();
     private:
         Account* signedIn = new Account;
         std::unordered_map<string, Account> accounts;

@@ -1,7 +1,7 @@
 #include <utility>
 
 #include "../headerFiles/recipie.h"
-Recipie::Recipie(string titleIn, string authorIn, int prepTimeIn, int cookTimeIn) {//string titleIn,string authorIn,
+Recipie::Recipie(string titleIn, string authorIn, int prepTimeIn, int cookTimeIn, bool ops[]) {//string titleIn,string authorIn,
     g_noRecipies++;
     recipieNo = g_noRecipies;
     timeCreated = std::time(nullptr);
@@ -12,7 +12,8 @@ Recipie::Recipie(string titleIn, string authorIn, int prepTimeIn, int cookTimeIn
     prepTime = prepTimeIn;
     cookTime = cookTimeIn;
     setTime();
-    //options.dietWord = bitWord;
+    setOptions(ops);
+    delete[] ops;
 }
 
 Recipie::Recipie(const Recipie &r) {

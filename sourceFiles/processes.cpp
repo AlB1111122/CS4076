@@ -39,6 +39,7 @@ namespace sys{
         for(int i = 0; i < size; i++){
             addAccount(accountsIn[i]);
         }
+        std::sort(recipies.begin(),recipies.end());//this sorts aplphabeticaly
     }
 
     void processes::addRecipie(Recipie& r){
@@ -49,6 +50,7 @@ namespace sys{
         for(auto & i : recipieIn){
             addRecipie(i);
         }
+        std::sort(recipies.begin(), recipies.end());//sorted alphabetically by title
     }
 
     void processes::createNewAccount(string& acName, string& acPassword) {
@@ -56,12 +58,19 @@ namespace sys{
         addAccount(account);
     }
 
-    std::vector<Recipie*> processes::findRecipies(string& nameORauthor, uint8_t opsBitword, long int minDate, long int maxDate) {//can search by name/author, options, date,
-        std::vector<Recipie> returningRecipies;
-        
-
-        return recipies;
+    std::vector<Recipie*> processes::findRecipies(string& nameORauthor, bool* ops, long int minDate, long int maxDate) {//can search by name/author, options, date,
+        std::vector<Recipie*> returningRecipies;
+        auto it = find_if(recipies.begin(), recipies.end(), [&nameORauthor](Recipie *obj) {
+            string objNameAuthor = obj->getTitle() + obj->getAuthor();
+            return objNameAuthor.contains(nameORauthor);});
+        if (it != recipies.end()){
+            returningRecipies.emplace_back();
+        }else {
+            throw objectNotFoundExeption();
+        }return recipies;
     }
 
-
+    std::vector<Recipie *> processes::getRecipies() {
+        return recipies;
+    }
 }

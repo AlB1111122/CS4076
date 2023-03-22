@@ -18,7 +18,7 @@ extern int g_noRecipies;
 class Recipie : public printable{
     friend class processes;
 public:
-    explicit Recipie(string titleIn = "title", string authorIn = "author", int prepTimeIn = 10, int cookTimeIn = 20);
+    explicit Recipie(string titleIn = "title", string authorIn = "author", int prepTimeIn = 10, int cookTimeIn = 20, bool ops[8] = new bool[] {false,false,false,false,false,false,false,false});
     Recipie(const Recipie &r);
     ~Recipie();
 
@@ -55,6 +55,10 @@ public:
 
     [[nodiscard]] string getTagsStr() const;
     [[nodiscard]] string print() const override;
+
+    bool operator < (const Recipie &other) const {
+        return title < other.getTitle();
+    }
 
 private:
     string title;

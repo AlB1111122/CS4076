@@ -13,9 +13,16 @@ int g_noRecipies = 0;
 
 int main() {
     Recipie r;
-    bool* a = new bool[]{true,false,true,true,false,true,true,true};
-    r.setOptions(a);
-    cout << r.print();
+    bool* ops = new bool[] {true,true,true,true,true,true,true,false};
+    Recipie r2("odd one out","password",10,10,ops);
+    Recipie r3;
+    std::vector<Recipie> vec = {r,r2,r3};
+
+    sys::processes p;
+    p.addRecipies(vec);
+    for(Recipie* rec: p.getRecipies()){
+       cout << *rec << endl;
+    }
 }
 /*
  *
