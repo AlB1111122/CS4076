@@ -1,7 +1,7 @@
 #include <utility>
 
 #include "../headerFiles/recipie.h"
-Recipie::Recipie(string titleIn, string authorIn, int prepTimeIn, int cookTimeIn, bool ops[]) {//string titleIn,string authorIn,
+Recipie::Recipie(string titleIn, string authorIn, int prepTimeIn, int cookTimeIn) {//opts needs to be set seperatly die to awkwardness
     g_noRecipies++;
     recipieNo = g_noRecipies;
     timeCreated = std::time(nullptr);
@@ -12,8 +12,6 @@ Recipie::Recipie(string titleIn, string authorIn, int prepTimeIn, int cookTimeIn
     prepTime = prepTimeIn;
     cookTime = cookTimeIn;
     setTime();
-    setOptions(ops);
-    delete[] ops;
 }
 
 Recipie::Recipie(const Recipie &r) {
@@ -123,17 +121,6 @@ op::options Recipie::getOptions() const {
     return options;
 }
 
-void Recipie::setOptions(bool *ops) {
-    options.vegan = ops[0];
-    options.vegetarian = ops[1];
-    options.sugarFree = ops[2];
-    options.glutenFree = ops[3];
-    options.shellfishFree = ops[4];
-    options.dairyFree = ops[5];
-    options.quick = ops[6];
-    options.noOven = ops[7];
-}
-
 string Recipie::print() const {
     string info = title + " by " + author + "\n" +
             getTagsStr() +
@@ -175,6 +162,10 @@ string Recipie::getTagsStr() const{
         return tags.append("\n");
     }
     return "";
+}
+
+void Recipie::setOptions(bool *ops) {
+    options.setOptions(ops);
 }
 
 

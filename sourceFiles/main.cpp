@@ -13,14 +13,24 @@ int g_noRecipies = 0;
 
 int main() {
     Recipie r;
-    bool* ops = new bool[] {true,true,true,true,true,true,true,false};
-    Recipie r2("odd one out","password",10,10,ops);
+    bool ops[] = {true,true,true,true,true,true,true,false};
+    bool ops2[] = {false,false,false,false,false,false,false,false};
+    Recipie r2("odd one out","password",10,10);
+    r2.setOptions(ops);
     Recipie r3;
     std::vector<Recipie> vec = {r,r2,r3};
 
     sys::processes p;
+    op::options o1{};
+    o1.setOptions(ops2);
+    searchTerms sT;
+    sT.title = "";
+    sT.options = o1;
+    sT.maxDate = -1;
+    sT.minDate = -1;
+
     p.addRecipies(vec);
-    for(Recipie* rec: p.getRecipies()){
+    for(Recipie* rec: p.findRecipies(sT)){
        cout << *rec << endl;
     }
 }

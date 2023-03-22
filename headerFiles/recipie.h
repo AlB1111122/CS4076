@@ -14,11 +14,17 @@ using std::string;
 #include "printable.h"
 
 extern int g_noRecipies;
+struct searchTerms{
+    string title;
+    op::options options;
+    long int minDate = -1;
+    long int maxDate = -1;
+};
 
 class Recipie : public printable{
     friend class processes;
 public:
-    explicit Recipie(string titleIn = "title", string authorIn = "author", int prepTimeIn = 10, int cookTimeIn = 20, bool ops[8] = new bool[] {false,false,false,false,false,false,false,false});
+    explicit Recipie(string titleIn = "title", string authorIn = "author", int prepTimeIn = 10, int cookTimeIn = 20);
     Recipie(const Recipie &r);
     ~Recipie();
 
@@ -42,7 +48,7 @@ public:
     [[nodiscard]] char * getTimeCreatedStr() const;
 
     [[nodiscard]] op::options getOptions() const;
-    void setOptions(bool ops[8]);
+    void setOptions(bool* ops);
 
     void addIngreditent(string& ingredient);
     void addIngreditents(int size, string ingredientsIn[]);
@@ -58,6 +64,14 @@ public:
 
     bool operator < (const Recipie &other) const {
         return title < other.getTitle();
+    }
+
+    bool operator == (const searchTerms& search){
+        if(title.contains(search.title) && search.options == options && ((search.minDate + search.maxDate == -2) || (timeCreated <= search.minDate && timeCreated >= search.maxDate))){
+                return true;
+        }else{
+            return false;
+        }
     }
 
 private:

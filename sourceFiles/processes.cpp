@@ -58,19 +58,31 @@ namespace sys{
         addAccount(account);
     }
 
-    std::vector<Recipie*> processes::findRecipies(string& nameORauthor, bool* ops, long int minDate, long int maxDate) {//can search by name/author, options, date,
+    std::vector<Recipie*> processes::findRecipies(searchTerms& search) {//seachterms defined in recipie
         std::vector<Recipie*> returningRecipies;
-        auto it = find_if(recipies.begin(), recipies.end(), [&nameORauthor](Recipie *obj) {
-            string objNameAuthor = obj->getTitle() + obj->getAuthor();
-            return objNameAuthor.contains(nameORauthor);});
+        __gnu_cxx::__normal_iterator<Recipie **, std::vector<Recipie *>> it = find_if(recipies.begin(), recipies.end(), [&search](Recipie* obj) {return search == *obj;});
+        while(it != recipies.end() ){
+            returningRecipies.emplace_back(*it);
+            it = std::find_if (++it, recipies.end(), [&search](Recipie* obj) {return search == *obj;});
+        }
+        if(returningRecipies.empty()){
+            throw objectNotFoundExeption();
+        }else {
+            return returningRecipies;
+        }
+    }
+    /*
+     * auto it = find_if(recipies.begin(), recipies.end(), [&search](Recipie* obj) {
+            return search == *obj;});
         if (it != recipies.end()){
-            returningRecipies.emplace_back();
+            returningRecipies.emplace_back(*it);
         }else {
             throw objectNotFoundExeption();
-        }return recipies;
-    }
+        }
+     */
 
     std::vector<Recipie *> processes::getRecipies() {
         return recipies;
     }
+
 }
