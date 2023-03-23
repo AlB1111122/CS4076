@@ -12,27 +12,37 @@ int g_noAccounts = 0;
 int g_noRecipies = 0;
 
 int main() {
-    Recipie r;
-    bool ops[] = {true,true,true,true,true,true,true,false};
-    bool ops2[] = {false,false,false,false,false,false,false,false};
-    Recipie r2("odd one out","password",10,10);
-    r2.setOptions(ops);
-    Recipie r3;
-    std::vector<Recipie> vec = {r,r2,r3};
 
-    sys::processes p;
-    op::options o1{};
-    o1.setOptions(ops2);
-    searchTerms sT;
-    sT.title = "";
-    sT.options = o1;
-    sT.maxDate = -1;
-    sT.minDate = -1;
+    Recipie r0("bred","ac0", 30, 120);
+    Recipie r1("pasta","ac0", 30, 120);
+    Recipie r2("chiken curry","ac0", 30, 120);
+    Recipie r3("fajitas","ac0", 30, 120);
+    Recipie r4("carbonara","ac1", 30, 120);
+    Recipie r5("hamburger","ac0", 30, 120);
+    Recipie r6("pizza","ac0", 30, 120);
+    Recipie r7("egg fied rice","ac0", 30, 120);
 
-    p.addRecipies(vec);
-    for(Recipie* rec: p.findRecipies(sT)){
-       cout << *rec << endl;
-    }
+    sys::processes proc;
+
+    Account a0("ac0", "password");
+    Recipie rsArr[] ={r0,r1,r2,r3};
+    a0.addRecipies(4,rsArr);
+
+
+       Account a1("ac1", "password");
+       a1.addRecipie(r4);
+       Account a2("ac2", "password");
+       Recipie rsArr2[] = {r5,r6,r7};
+       a2.addRecipies(3,rsArr2);
+       Account a3("ac3", "password");
+       Account a4("ac4", "password");
+       Account a5("ac5", "password");
+       Account a6("ac6", "password");
+       Account a7("ac7", "password");
+
+    Account acArray[] = {a0};//,a1,a2,a3,a4,a5,a6,a7
+    proc.addAccounts(1,acArray);
+
 }
 /*
  *

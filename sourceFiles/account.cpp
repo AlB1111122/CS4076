@@ -43,7 +43,7 @@ void Account::addRecipie(Recipie &r) {
 
 void Account::addRecipies(int size, Recipie recipieIn[]) {
     for(int i = 0; i < size; i++){
-        usrRecipies[i] = recipieIn[i];
+        usrRecipies.push_back(recipieIn[i]);
     }
 }
 
