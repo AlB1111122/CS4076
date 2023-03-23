@@ -71,18 +71,13 @@ namespace sys{
             return returningRecipies;
         }
     }
-    /*
-     * auto it = find_if(recipies.begin(), recipies.end(), [&search](Recipie* obj) {
-            return search == *obj;});
-        if (it != recipies.end()){
-            returningRecipies.emplace_back(*it);
-        }else {
-            throw objectNotFoundExeption();
-        }
-     */
 
     std::vector<Recipie *> processes::getRecipies() {
         return recipies;
+    }
+
+    std::unordered_map<string, Account> *processes::getAccounts() {
+        return &accounts;
     }
 
 }

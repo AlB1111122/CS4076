@@ -27,6 +27,8 @@ namespace sys{
         std::vector<Recipie*> findRecipies(searchTerms& search);
         std::vector<Recipie*> getRecipies();
 
+        std::unordered_map<string, Account>* getAccounts();
+
     private:
         Account* signedIn = new Account;
         std::unordered_map<string, Account> accounts;

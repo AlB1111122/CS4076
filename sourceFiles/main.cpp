@@ -6,7 +6,7 @@
 #include "../headerFiles/options.h"
 using std::cout;
 using std::endl;
-#include <chrono>
+
 
 int g_noAccounts = 0;
 int g_noRecipies = 0;
@@ -40,9 +40,11 @@ int main() {
        Account a6("ac6", "password");
        Account a7("ac7", "password");
 
-    Account acArray[] = {a0};//,a1,a2,a3,a4,a5,a6,a7
-    proc.addAccounts(1,acArray);
+    Account acArray[] = {a0,a1,a2,a3,a4,a5,a6,a7};//
+    proc.addAccounts(8,acArray);
 
+    string s = "enji";
+    proc.findAccount(s);
 }
 /*
  *
