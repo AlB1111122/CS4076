@@ -1,0 +1,13 @@
+# ninja log v5
+0	214	1679776593399990318	project_autogen/timestamp	5ada5ee11a479656
+0	214	1679776593399990318	project_autogen/mocs_compilation.cpp	5ada5ee11a479656
+0	214	1679776593399990318	/home/shcool/Desktop/CS4076-EventDrivenPrograming/projectGit/QTprojUI/build-UI-Qt6-Debug/project_autogen/timestamp	5ada5ee11a479656
+0	214	1679776593399990318	/home/shcool/Desktop/CS4076-EventDrivenPrograming/projectGit/QTprojUI/build-UI-Qt6-Debug/project_autogen/mocs_compilation.cpp	5ada5ee11a479656
+215	1505	1679776594693974050	CMakeFiles/project.dir/account.cpp.o	ac54d175a210d972
+215	1644	1679776594831972316	CMakeFiles/project.dir/recipie.cpp.o	9dc3a66e9844b8dc
+215	2506	1679776595692961491	CMakeFiles/project.dir/processes.cpp.o	477a6e8d3e8385a7
+216	3347	1679776596535950894	CMakeFiles/project.dir/homepage.cpp.o	6e3ca4ff99dc6b53
+214	3731	1679776596919946066	CMakeFiles/project.dir/project_autogen/mocs_compilation.cpp.o	f25b66172b71b13f
+215	3776	1679776596964945500	CMakeFiles/project.dir/startwindow.cpp.o	8de562f7831e7131
+214	3791	1679776596978945324	CMakeFiles/project.dir/main.cpp.o	53d12349fe1779b
+3791	4142	1679776597327940937	project	e326532d73dbb431

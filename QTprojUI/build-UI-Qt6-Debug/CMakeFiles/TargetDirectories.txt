@@ -1,0 +1,9 @@
+/home/shcool/Desktop/CS4076-EventDrivenPrograming/projectGit/QTprojUI/build-UI-Qt6-Debug/CMakeFiles/project.dir
+/home/shcool/Desktop/CS4076-EventDrivenPrograming/projectGit/QTprojUI/build-UI-Qt6-Debug/CMakeFiles/edit_cache.dir
+/home/shcool/Desktop/CS4076-EventDrivenPrograming/projectGit/QTprojUI/build-UI-Qt6-Debug/CMakeFiles/rebuild_cache.dir
+/home/shcool/Desktop/CS4076-EventDrivenPrograming/projectGit/QTprojUI/build-UI-Qt6-Debug/CMakeFiles/list_install_components.dir
+/home/shcool/Desktop/CS4076-EventDrivenPrograming/projectGit/QTprojUI/build-UI-Qt6-Debug/CMakeFiles/install.dir
+/home/shcool/Desktop/CS4076-EventDrivenPrograming/projectGit/QTprojUI/build-UI-Qt6-Debug/CMakeFiles/install/local.dir
+/home/shcool/Desktop/CS4076-EventDrivenPrograming/projectGit/QTprojUI/build-UI-Qt6-Debug/CMakeFiles/install/strip.dir
+/home/shcool/Desktop/CS4076-EventDrivenPrograming/projectGit/QTprojUI/build-UI-Qt6-Debug/CMakeFiles/project_autogen_timestamp_deps.dir
+/home/shcool/Desktop/CS4076-EventDrivenPrograming/projectGit/QTprojUI/build-UI-Qt6-Debug/CMakeFiles/project_autogen.dir
