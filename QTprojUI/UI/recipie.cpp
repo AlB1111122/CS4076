@@ -17,8 +17,8 @@ Recipie::Recipie(string titleIn, string authorIn, int prepTimeIn, int cookTimeIn
 }
 
 Recipie::Recipie(const Recipie &r) {
-    g_noRecipies++;
-    recipieNo = g_noRecipies;//bc need to have it marked as a diff one for strage/load for acc
+    //g_noRecipies++;
+    recipieNo = r.getRecipieNo();
     timeCreated = *r.getTimeCreated();
     strcpy(timeCreatedStr,r.getTimeCreatedStr());
     title = r.getTitle();
@@ -100,7 +100,8 @@ std::vector<string>* Recipie::getInstructions(){
 }
 
 void Recipie::addIngreditent(string &ingredient) {
-    ingredients.emplace_back(ingredient);
+    int i = ingredients.size() + 1;
+    ingredients.emplace_back(std::to_string(i) + ". " + ingredient);
 }
 
 void Recipie::addIngreditents(int size, string ingredientsIn[]) {
@@ -110,7 +111,8 @@ void Recipie::addIngreditents(int size, string ingredientsIn[]) {
 }
 
 void Recipie::addInstruction(string &instruction) {
-    instructions.emplace_back(instruction);
+    int i = instructions.size() + 1;
+    instructions.emplace_back(std::to_string(i) + ". " + instruction);
 }
 
 void Recipie::addInstructions(int size, string instructionsIn[]) {
@@ -132,7 +134,8 @@ string Recipie::print() const {
 
 string Recipie::getTagsStr() const{
     string tags = "";
-    struct cmpr{uint16_t i:1 = 1;}cmpr;
+    struct cmpr{uint16_t i:1;}cmpr;
+    cmpr.i = 1;
     string* arrayOps = new string[] {"vegan", "vegetarian", "sugar free", "gluten free", "shellfish free", "dairy free", "quick", "no oven" };
     if(options.vegan == cmpr.i){
         tags.append(arrayOps[0]).append(", ");

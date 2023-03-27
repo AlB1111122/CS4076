@@ -6,7 +6,7 @@
 #include <QPlainTextEdit>
 #include <QTextBrowser>
 #include <QString>
-#include "homepage.h"
+#include "homewindow.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class StartWindow; }

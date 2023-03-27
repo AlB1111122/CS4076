@@ -14,6 +14,10 @@ int g_noRecipies;
 int main(int argc, char *argv[]){
 
     Recipie r0("bred","ac0", 30, 120);
+    for(int i = 0; i < 15; i++){
+        string s = "test";
+        r0.addIngreditent(s);
+    }
     Recipie r1("pasta","ac0", 30, 120);
     Recipie r2("chiken curry","ac0", 30, 120);
     Recipie r3("fajitas","ac0", 30, 120);

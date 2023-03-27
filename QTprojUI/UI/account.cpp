@@ -3,12 +3,7 @@
 void Account::setName(string& nameIn){
     name = nameIn;
 }
-/*
- *         string name;
-        string password;
-        int accountNo;
-        collection<Recipie> usrRecipies;
- */
+
 Account::Account(const Account &a) {
     name = a.getName();
     password = a.getPassword();

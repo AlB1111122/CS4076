@@ -29,6 +29,10 @@ namespace sys{
         }
     }
 
+    Account* processes::getSignedIn(){
+        return signedIn;
+    }
+
     void processes::addAccount(Account& a){
         accounts[a.getName()] = a;
         std::vector<Recipie> acRecipies = a.getUsrRecipies();

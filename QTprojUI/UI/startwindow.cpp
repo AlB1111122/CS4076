@@ -48,10 +48,10 @@ void StartWindow::login(string uName, string uPass){
     if(!(uName == "" || uPass == "")){
         QString didLIsucseed = QString::fromStdString(process->login(uName,uPass));
         if(didLIsucseed == ""){
-            homePage* hPage = new homePage;
+            homewindow* hPage = new homewindow;
             hPage->setProcess(process);
             hPage->show();
-            hide();
+            close();
         }else{
             topText->setText(didLIsucseed);
             topText->setAlignment(Qt::AlignCenter);

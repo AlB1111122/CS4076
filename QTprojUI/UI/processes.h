@@ -16,6 +16,7 @@ namespace sys{
         ~processes();
         string login(string& uName, string& uPassword);
         Account* findAccount(string& name);
+        Account* getSignedIn();
 
         void createNewAccount(string& acName, string& acPassword);
 

@@ -29,9 +29,18 @@ set(PROJECT_SOURCES
         recipie.h
         options.h
         printable.h
-        homepage.h
-        homepage.cpp
-        homepage.ui
+        homewindow.h
+        homewindow.cpp
+        homewindow.ui
+        recipiewindow.h
+        recipiewindow.cpp
+        recipiewindow.ui
+        accountwindow.h
+        accountwindow.cpp
+        accountwindow.ui
+        recipiebox.h
+        recipiebox.cpp
+        recipiebox.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
