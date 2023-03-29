@@ -27,6 +27,7 @@ class Account : public printable{
         [[nodiscard]]int getAccountNo() const;
 
         collection<Recipie> getUsrRecipies() const;
+        std::vector<Recipie*> getPTRUserRecs();
         void addRecipie(Recipie& r);
         void addRecipies(int size, Recipie recipieIn[]);
 

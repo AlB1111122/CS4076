@@ -13,7 +13,46 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QScrollArea" name="scrollArea">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>40</y>
+      <width>1027</width>
+      <height>611</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>1016</width>
+      <height>611</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>2000</width>
+      <height>2000</height>
+     </size>
+    </property>
+    <property name="widgetResizable">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <widget class="QWidget" name="scrollAreaWidgetContents">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>1025</width>
+       <height>609</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
@@ -35,7 +74,6 @@
      <string>Account</string>
     </property>
     <addaction name="viewAccount"/>
-    <addaction name="actionEdit_my_account"/>
    </widget>
    <addaction name="menuHome"/>
    <addaction name="menuAccount"/>

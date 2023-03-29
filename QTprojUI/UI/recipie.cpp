@@ -127,7 +127,7 @@ op::options Recipie::getOptions() const {
 
 string Recipie::print() const {
     string info = title + " by " + author + "\n" +
-            getTagsStr() +
+            getTagsStr() + "\n" +
             timeCreatedStr;
     return info;
 }

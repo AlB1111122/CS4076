@@ -5,13 +5,15 @@
 #include "recipiewindow.h"
 #include <QMainWindow>
 #include <QAction>
+#include <QVBoxLayout>
+#include <QWidget>
+#include "recipie.h"
 
 namespace Ui {
 class homewindow;
 }
 
-class homewindow : public QMainWindow
-{
+class homewindow : public QMainWindow{
     Q_OBJECT
 
 public:
@@ -25,6 +27,7 @@ private slots:
 private:
     Ui::homewindow *ui;
     sys::processes* process;
+    recipiebox** recBoxsPTRS;
 };
 
 #endif // HOMEWINDOW_H

@@ -24,10 +24,10 @@ namespace sys{
         void addAccounts(int size, Account accountsIn[]);
 
         inline void addRecipie(Recipie& r);
-        void addRecipies(std::vector<Recipie> & recipieIn);
+        void addRecipies(std::vector<Recipie*>& recipieIn);
 
         std::vector<Recipie*> findRecipies(searchTerms& search);
-        std::vector<Recipie*> getRecipies();
+        std::vector<Recipie*>* getRecipies();
 
         void sortRecipies();
 

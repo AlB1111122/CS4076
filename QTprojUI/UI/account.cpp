@@ -32,6 +32,14 @@ collection<Recipie> Account::getUsrRecipies() const{
     return usrRecipies;
 }
 
+std::vector<Recipie*> Account::getPTRUserRecs(){
+    std::vector<Recipie*> retVec;
+    for(int i = 0; i < usrRecipies.size(); i++){
+        retVec.push_back(&usrRecipies[i]);
+    }
+    return retVec;
+}
+
 void Account::addRecipie(Recipie &r) {
     usrRecipies.emplace_back(r);
 }

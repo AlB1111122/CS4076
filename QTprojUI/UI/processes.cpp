@@ -35,7 +35,7 @@ namespace sys{
 
     void processes::addAccount(Account& a){
         accounts[a.getName()] = a;
-        std::vector<Recipie> acRecipies = a.getUsrRecipies();
+        std::vector<Recipie*> acRecipies = a.getPTRUserRecs();
         addRecipies(acRecipies);
     }
 
@@ -53,9 +53,9 @@ namespace sys{
         recipies.push_back(&r);
     }
 
-    void processes::addRecipies(std::vector<Recipie> & recipieIn){
-        for(auto & i : recipieIn){
-            addRecipie(i);
+    void processes::addRecipies(std::vector<Recipie*>& recipieIn){
+        for(int i = 0; i < recipieIn.size(); i++){
+            addRecipie(*recipieIn[i]);
         }
         std::sort(recipies.begin(), recipies.end());//sorted alphabetically by title
     }
@@ -79,8 +79,8 @@ namespace sys{
         }
     }
 
-    std::vector<Recipie *> processes::getRecipies() {
-        return recipies;
+    std::vector<Recipie*>* processes::getRecipies(){
+        return &recipies;
     }
 
    // std::unordered_map<string, Account> *processes::getAccounts() {

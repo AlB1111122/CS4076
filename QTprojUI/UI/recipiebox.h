@@ -1,22 +1,36 @@
 #ifndef RECIPIEBOX_H
 #define RECIPIEBOX_H
 
-#include <QDockWidget>
+#include <QWidget>
+#include "recipie.h"
+#include <QString>
+#include "recipiewindow.h"
+//#include "clickdetectwiget.h"
+#include <QGraphicsAnchorLayout>
+#include <QPushButton>
 
 namespace Ui {
-class recipieBox;
+class recipiebox;
 }
 
-class recipieBox : public QDockWidget
-{
+class recipiebox : public QWidget{
     Q_OBJECT
 
+
+
+
 public:
-    explicit recipieBox(QWidget *parent = nullptr);
-    ~recipieBox();
+    explicit recipiebox(QWidget *parent = nullptr);
+    ~recipiebox();
+    void setRecipie(Recipie& r);
+    Recipie* getRecipie();
+
+private slots:
+    void on_pushButton_clicked();
 
 private:
-    Ui::recipieBox *ui;
+    Ui::recipiebox *ui;
+    Recipie* recipie;
 };
 
 #endif // RECIPIEBOX_H

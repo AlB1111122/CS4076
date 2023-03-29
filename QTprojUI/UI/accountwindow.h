@@ -3,13 +3,13 @@
 
 #include "account.h"
 #include <QMainWindow>
+#include "recipiebox.h"
 
 namespace Ui {
 class accountwindow;
 }
 
-class accountwindow : public QMainWindow
-{
+class accountwindow : public QMainWindow{
     Q_OBJECT
 
 public:
@@ -20,6 +20,7 @@ public:
 private:
     Ui::accountwindow *ui;
     Account* account;
+    recipiebox** recBoxsPTRS;
 };
 
 #endif // ACCOUNTWINDOW_H
