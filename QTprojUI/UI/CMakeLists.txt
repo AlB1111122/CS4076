@@ -41,6 +41,9 @@ set(PROJECT_SOURCES
         recipiebox.h
         recipiebox.cpp
         recipiebox.ui
+        searchwindow.h
+        searchwindow.cpp
+        searchwindow.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

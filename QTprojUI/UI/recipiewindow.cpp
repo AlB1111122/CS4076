@@ -22,6 +22,8 @@ void recipiewindow::setRecipie(Recipie& r){
     ui->timeTB->setText(QString::number(r.getTime()));
     ui->tagListTB->setText(QString::fromStdString(r.getTagsStr()));
     ui->timeCreatedTB->setText(QString(r.getTimeCreatedStr()));
+    int noIng = r.getIngredients()->size();
+    int noInst = r.getInstructions()->size();
     for(string s : *r.getIngredients()){
         ui->ingList->addItem(QString::fromStdString(s));
     }

@@ -83,8 +83,4 @@ namespace sys{
         return &recipies;
     }
 
-   // std::unordered_map<string, Account> *processes::getAccounts() {
-     //   return &accounts;
-   // }
-
 }

@@ -25,6 +25,7 @@ class Recipie : public printable{
     friend class processes;
 public:
     explicit Recipie(string titleIn = "title", string authorIn = "author", int prepTimeIn = 10, int cookTimeIn = 20);
+    Recipie(string titleIn, string authorIn, int prepTimeIn, int cookTimeIn, long int timeCreatedIn);
     Recipie(const Recipie &r);
     ~Recipie();
 
@@ -67,12 +68,14 @@ public:
     }
 
     bool operator == (const searchTerms& search){
-        if(title.contains(search.title) && search.options == options && ((search.minDate + search.maxDate == -2) || (timeCreated <= search.minDate && timeCreated >= search.maxDate))){
+        if(title.contains(search.title) && search.options == options && (timeCreated >= search.minDate && (timeCreated <= search.maxDate || search.maxDate == -1))){
                 return true;
         }else{
             return false;
         }
     }
+    std::vector<string> ingredients;
+    std::vector<string> instructions;
 
 private:
     string title;
@@ -84,8 +87,6 @@ private:
     char* timeCreatedStr = new char[17];
     time_t timeCreated;
     op::options options;
-    std::vector<string> ingredients;
-    std::vector<string> instructions;
     void setTime();
 };
 #endif // RECIPIE_H

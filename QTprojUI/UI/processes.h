@@ -31,10 +31,8 @@ namespace sys{
 
         void sortRecipies();
 
-       // std::unordered_map<string, Account>* getAccounts();
-
     private:
-        Account* signedIn = new Account;
+        Account* signedIn = nullptr;
         std::unordered_map<std::string, Account> accounts;
         std::vector<Recipie*> recipies;
     };

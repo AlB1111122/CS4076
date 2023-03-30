@@ -1,0 +1,23 @@
+/home/shcool/Applications/clion-2022.3.1/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/shcool/Applications/clion-2022.3.1/bin/ninja/linux/ninja -G Ninja -S /home/shcool/Desktop/CS4076-EventDrivenPrograming/projectGit/CS4076/QTprojUI/UI -B /home/shcool/Desktop/CS4076-EventDrivenPrograming/projectGit/CS4076/QTprojUI/UI/cmake-build-debug
+-- The CXX compiler identification is GNU 12.2.1
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMake Error at CMakeLists.txt:14 (find_package):
+  Could not find a package configuration file provided by "QT" with any of
+  the following names:
+
+    Qt6Config.cmake
+    qt6-config.cmake
+    Qt5Config.cmake
+    qt5-config.cmake
+
+  Add the installation prefix of "QT" to CMAKE_PREFIX_PATH or set "QT_DIR" to
+  a directory containing one of the above files.  If "QT" provides a separate
+  development package or SDK, be sure it has been installed.
+
+
+-- Configuring incomplete, errors occurred!
+See also "/home/shcool/Desktop/CS4076-EventDrivenPrograming/projectGit/CS4076/QTprojUI/UI/cmake-build-debug/CMakeFiles/CMakeOutput.log".

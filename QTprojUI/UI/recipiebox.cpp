@@ -4,7 +4,6 @@
 recipiebox::recipiebox(QWidget *parent) :
     QWidget(parent), ui(new Ui::recipiebox){
     ui->setupUi(this);
-    QBrush tb(Qt::transparent); // Transparent brush, solid pattern
     ui->pushButton->setFlat(true);
 
 }

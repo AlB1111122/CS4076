@@ -16,8 +16,22 @@ Recipie::Recipie(string titleIn, string authorIn, int prepTimeIn, int cookTimeIn
     options.setOptions(ops);
 }
 
+Recipie::Recipie(string titleIn, string authorIn, int prepTimeIn, int cookTimeIn, long int timeCreatedIn){
+    g_noRecipies++;
+    recipieNo = g_noRecipies;
+    timeCreated = timeCreatedIn;
+    struct tm tm = *localtime(getTimeCreated());
+    snprintf(timeCreatedStr, 17, "%d-%02d-%02d %02d:%02d\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min);
+    title = std::move(titleIn);
+    author = std::move(authorIn);
+    prepTime = prepTimeIn;
+    cookTime = cookTimeIn;
+    setTime();
+    bool ops[8] = {false,false,false,false,false,false,false,false};
+    options.setOptions(ops);
+}
+
 Recipie::Recipie(const Recipie &r) {
-    //g_noRecipies++;
     recipieNo = r.getRecipieNo();
     timeCreated = *r.getTimeCreated();
     strcpy(timeCreatedStr,r.getTimeCreatedStr());
@@ -27,8 +41,9 @@ Recipie::Recipie(const Recipie &r) {
     cookTime = r.getCookTime();
     time = r.getTime();
     options = r.getOptions();
+    ingredients = r.ingredients;
+    instructions = r.instructions;
 }
-
 
 Recipie::~Recipie() {
     delete[] timeCreatedStr;
@@ -127,7 +142,7 @@ op::options Recipie::getOptions() const {
 
 string Recipie::print() const {
     string info = title + " by " + author + "\n" +
-            getTagsStr() + "\n" +
+            getTagsStr() +
             timeCreatedStr;
     return info;
 }

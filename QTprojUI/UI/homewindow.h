@@ -8,6 +8,7 @@
 #include <QVBoxLayout>
 #include <QWidget>
 #include "recipie.h"
+#include "searchwindow.h"
 
 namespace Ui {
 class homewindow;
@@ -23,11 +24,14 @@ public:
 
 private slots:
     void seeAccount();
+    void search();
 
 private:
     Ui::homewindow *ui;
     sys::processes* process;
-    recipiebox** recBoxsPTRS;
+    recipiebox** recBoxsPTRS = nullptr;
+    QWidget* container = nullptr;
+    QVBoxLayout* lay = nullptr;
 };
 
 #endif // HOMEWINDOW_H

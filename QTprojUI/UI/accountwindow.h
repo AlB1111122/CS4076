@@ -4,6 +4,7 @@
 #include "account.h"
 #include <QMainWindow>
 #include "recipiebox.h"
+#include <QVBoxLayout>
 
 namespace Ui {
 class accountwindow;
@@ -21,6 +22,8 @@ private:
     Ui::accountwindow *ui;
     Account* account;
     recipiebox** recBoxsPTRS;
+    QWidget* container;
+    QVBoxLayout* lay;
 };
 
 #endif // ACCOUNTWINDOW_H

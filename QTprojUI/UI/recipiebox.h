@@ -16,9 +16,6 @@ class recipiebox;
 class recipiebox : public QWidget{
     Q_OBJECT
 
-
-
-
 public:
     explicit recipiebox(QWidget *parent = nullptr);
     ~recipiebox();
